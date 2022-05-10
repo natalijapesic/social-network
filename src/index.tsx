@@ -11,7 +11,6 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <div className="text-4xl font-bold">hello world</div>
       <App />
     </Provider>
   </React.StrictMode>

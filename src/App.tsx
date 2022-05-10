@@ -1,9 +1,12 @@
-import { Counter } from './features/counter/Counter';
+// import { Counter } from './features/counter/Counter';
+import Header from './features/header/Header';
+import PostsList from './features/posts/PostList';
 
 function App() {
   return (
-    <div >
-        <Counter />
+    <div>
+        <Header/>
+        <PostsList />
     </div>
   );
 }

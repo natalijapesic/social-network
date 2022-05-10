@@ -16,9 +16,9 @@ class PostService{
             { headers: { 'Content-type': 'application/json' } });
     };
 
-    async deletePost(postId: number){
-        return axios.delete(`${config.server}/posts/${postId}`)
-    }
+    // async deletePost(postId: number){
+    //     return axios.delete(`${config.server}/posts/${postId}`)
+    // }
 }
 
 export default new PostService();

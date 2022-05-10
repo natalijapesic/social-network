@@ -10,7 +10,6 @@ interface PostState{
     error: string | undefined
 }
 
-
 const initialState: PostState =
 {
     posts: [],
@@ -20,7 +19,6 @@ const initialState: PostState =
                                        
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await postService.getPosts();
-    console.log(response.data)
     return response.data
 });
 
@@ -55,6 +53,9 @@ const postSlice = createSlice({
     }
 })
 
-export const selecteAllPosts = (state: RootState) => state.posts.posts;
+export const selectAllPosts = (state: RootState) => state.posts.posts;
+export const getPostsStatus = (state: RootState) => state.posts.status;
+export const getPostsError = (state: RootState) => state.posts.error;
+
 export const { postAdded } = postSlice.actions;
 export default postSlice.reducer;

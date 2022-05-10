@@ -3,28 +3,18 @@
     {
       "id": 1,
       "title": "json-server1",
-      "authorId": 1,
+      "authorName": "test",
       "image": "",
       "description": "post1"
     },
     {
       "id": 2,
       "title": "json-server2",
-      "authorId": 1,
+      "authorName": "natalija",
       "image": "",
       "description": "post2"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "email": "test@gmail.com",

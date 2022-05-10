@@ -4,17 +4,20 @@ export class PostModel{
     title: string;
     image: string;
     description: string;
-    authorId: number;
+    authorName: string;
     date: string;
+    likes: number;
 
 
-    constructor(id: number, title: string, authorId: number, image: string, description: string) {
+    constructor(title: string, authorName: string, image: string, description: string) {
         
-        this.id = id;
+        this.id = 0;
         this.title = title;
         this.image = image;
-        this.authorId = authorId;
+        this.authorName = authorName;
         this.description = description;
         this.date = new Date().toUTCString();
+        this.likes = 0;
+        
     }
 }
