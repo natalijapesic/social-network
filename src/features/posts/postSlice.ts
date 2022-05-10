@@ -3,7 +3,6 @@ import { RootState } from "../../app/store";
 import { PostModel } from "./post";
 import axios from '../axiosSetUp'
 
-// https://stackoverflow.com/questions/66425645/what-is-difference-between-reducers-and-extrareducers-in-redux-toolkit
 
 
 interface PostState{
@@ -31,12 +30,20 @@ export const addNewPost = createAsyncThunk(
     return response.data;
 });
 
+
 const postSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        postAdded: (state, action: PayloadAction<PostModel>) =>{
-            state.posts.push(action.payload);
+        postAdded: {
+            reducer(state, action: PayloadAction<PostModel>){
+                state.posts.push(action.payload);
+            },
+            prepare(description, title, imageUrl, authorName){
+                return {
+                    payload: new PostModel(title, authorName, imageUrl, description)
+                }
+            }
         }
     },
     extraReducers(builder){
@@ -51,6 +58,12 @@ const postSlice = createSlice({
         .addCase(fetchPosts.rejected, (state, action) =>{
             state.status = 'failed';
             state.error = action.error.message;
+        })
+        .addCase(addNewPost.fulfilled, (state, action) => {
+            action.payload.date = new Date().toUTCString();
+            action.payload.likes = 0;
+            console.log(action.payload)
+            state.posts.push(action.payload)
         })
     }
 })
