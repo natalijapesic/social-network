@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { PostModel } from "./post";
-import postService from "./post.service";
+import axios from '../axiosSetUp'
 
 // https://stackoverflow.com/questions/66425645/what-is-difference-between-reducers-and-extrareducers-in-redux-toolkit
+
+
 interface PostState{
     posts: PostModel[],
-    status: string,
+    status: string;
     error: string | undefined
 }
 
@@ -18,15 +20,15 @@ const initialState: PostState =
 }
                                        
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    const response = await postService.getPosts();
+    const response = await axios.get<PostModel[]>(`/posts`);
     return response.data
 });
 
 export const addNewPost = createAsyncThunk(
     'posts/addNewPost', 
-    async (initialPost: PostModel) => {
-    const response = await postService.addPost(initialPost)
-    return response.data
+    async (newPost: PostModel) => {
+    const response = await axios.post<PostModel>(`/posts`, JSON.stringify(newPost));
+    return response.data;
 });
 
 const postSlice = createSlice({
@@ -40,7 +42,7 @@ const postSlice = createSlice({
     extraReducers(builder){
         builder
         .addCase(fetchPosts.pending, (state) =>{
-            state.status = 'loadig';
+            state.status = 'loading';
         })
         .addCase(fetchPosts.fulfilled, (state, action) =>{
             state.status = 'succeeded';

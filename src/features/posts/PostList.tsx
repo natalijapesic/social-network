@@ -14,7 +14,7 @@ const PostsList: React.FC = () => {
         if (postStatus === 'idle') {
             dispatch(fetchPosts())
         }
-    }, [])
+    }, [postStatus, dispatch])
 
     let content;
     if (postStatus === 'loading') {
