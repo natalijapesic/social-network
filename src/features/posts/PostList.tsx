@@ -14,7 +14,7 @@ const PostsList: React.FC = () => {
         if (postStatus === 'idle') {
             dispatch(fetchPosts())
         }
-    }, [postStatus, dispatch])
+    }, [])
 
     let content;
     if (postStatus === 'loading') {
@@ -26,7 +26,7 @@ const PostsList: React.FC = () => {
     }
     
     return (
-        <section className="flex-row justify-center ">
+        <section className="flex-row items-center">
             {content}
         </section>
     )

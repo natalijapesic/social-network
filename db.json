@@ -4,14 +4,14 @@
       "id": 1,
       "title": "json-server1",
       "authorName": "test",
-      "image": "",
+      "image": "https://place-hold.it/300",
       "description": "post1"
     },
     {
       "id": 2,
       "title": "json-server2",
       "authorName": "natalija",
-      "image": "",
+      "image": "https://place-hold.it/300",
       "description": "post2"
     }
   ],
