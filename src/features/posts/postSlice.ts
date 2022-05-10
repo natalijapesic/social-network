@@ -20,6 +20,7 @@ const initialState: PostState =
                                        
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await postService.getPosts();
+    console.log(response.data)
     return response.data
 });
 
