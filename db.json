@@ -17,29 +17,10 @@
   ],
   "users": [
     {
-      "id": 1,
-      "email": "test@gmail.com",
-      "password": "$2a$10$M1KX0eaaEDN/Ee0R/9LOB.NmYlATAWpmcIbGOjk4NqnxZWZmY1o46",
-      "username": "test",
-      "isAdmin": "true"
-    },
-    {
       "email": "natalija@gmail.com",
-      "password": "$2a$10$mGDZg2ep.FF9yZd7NQDd/u1qiou1UziFEy/jLLkkrOCwVRn0u5Fw2",
+      "password": "$2a$10$NRYLg7wyFch6hIhVTH2ISebr/GoZYUtfckrNuD7BK556gtR.Drdki",
       "username": "natalija",
-      "id": 2
-    },
-    {
-      "email": "nikola@gmail.com",
-      "password": "$2a$10$pmZtyqTp9MxUO5pKC4/1y.F99o5Csag8oC9GTDtfVFD.Ea5FlGs3q",
-      "username": "nikola",
-      "id": 3
-    },
-    {
-      "email": "ivana@gmail.com",
-      "password": "$2a$10$CUHCV8aHWZ.rkNXLN4GiMeTcqfarxsaIVpTbeMDbZj7ggl87n1B/6",
-      "username": "ivana",
-      "id": 4
+      "id": 1
     }
   ]
 }

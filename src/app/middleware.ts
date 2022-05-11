@@ -1,11 +1,14 @@
 import { Middleware } from '@reduxjs/toolkit';
-import { nextTick } from 'process';
-import { RootState, store } from './store';
+import { RootState } from './store';
 
 
-const storeUser: Middleware<{}, RootState> = store => next => action =>
+const storeUser: Middleware = store => next => action =>
 {
-    console.log(action.type);
+    if(action.type === "user/signUpUser/fulfilled" || action.type === "user/signInUser/fulfilled"){
+        //localStorage.setItem("user", JSON.stringify(response.data));
+    }
     
     let result = next(action);
 }
+
+export default storeUser;

@@ -1,7 +1,8 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import postsReducer from '../features/posts/postSlice';
 import authReducer from '../features/auth/authenticationSlice';
+import storeUser from './middleware';
 
 
 export const store = configureStore({
@@ -10,6 +11,7 @@ export const store = configureStore({
     posts: postsReducer,
     auth: authReducer
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(storeUser)
 });
 
 export type AppDispatch = typeof store.dispatch;

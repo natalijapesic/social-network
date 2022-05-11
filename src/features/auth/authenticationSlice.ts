@@ -63,9 +63,9 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        //middleware
         signOut:(state) =>{
             state.user = null;
+            localStorage.removeItem("accessToken");
         }
     },
     extraReducers(builder){
@@ -73,13 +73,11 @@ const userSlice = createSlice({
         .addCase(signIn.fulfilled, (state, action: PayloadAction<UserResponse>) =>{
             state.status = "succeeded";
             action.payload.user.isAdmin = false;
-            console.log(`user signedIn: ${action.payload}`);
         })
         .addCase(signUp.fulfilled, (state, action: PayloadAction<UserResponse>) =>{
             state.status = "succeeded";
             action.payload.user.isAdmin = false;
             state.user = action.payload.user;
-            console.log(action.payload.user);
         })
     }
 })

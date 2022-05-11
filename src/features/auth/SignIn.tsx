@@ -40,7 +40,7 @@ const SignIn: React.FC = () => {
     <div>
         <form onSubmit={onSubmit}>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Input e-mail" />
-            <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" placeholder="Input password" />
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Input password" />
             <button>SignIn</button>
         </form>
     </div>);
