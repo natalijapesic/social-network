@@ -1,12 +1,14 @@
 // import { Counter } from './features/counter/Counter';
+import SignUp from './features/auth/SignUp';
 import Header from './features/header/Header';
-import PostsList from './features/posts/PostList';
+// import PostsList from './features/posts/PostList';
 
 function App() {
   return (
     <div>
         <Header/>
-        <PostsList />
+        {/* <PostsList /> */}
+        <SignUp/>
     </div>
   );
 }

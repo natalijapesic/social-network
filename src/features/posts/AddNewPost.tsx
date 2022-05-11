@@ -77,6 +77,3 @@ const AddNewPost = () => {
     )
 }
 export default AddNewPost
-
-                {/*
-                 */}
