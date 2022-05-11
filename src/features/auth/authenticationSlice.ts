@@ -36,12 +36,6 @@ export const signIn = createAsyncThunk(
     'user/signInUser', 
     async (request: SignInRequest) => {
     const response = await axios.post<UserResponse>('/login', JSON.stringify(request));
-
-    //middleware
-    if (response.status === 200) {
-        localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
-    }
-
     return response.data
 });
 
@@ -49,12 +43,6 @@ export const signUp = createAsyncThunk(
     'user/signUpUser', 
     async (request: SignUpRequest) => {
     const response = await axios.post<UserResponse>('/register', JSON.stringify(request));
-    
-    //middleware
-    if (response.status === 201) {
-        localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
-    }
-
     return response.data
 });
 

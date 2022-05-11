@@ -1,14 +1,26 @@
 import { Middleware } from '@reduxjs/toolkit';
-import { RootState } from './store';
+import { UserModel } from '../features/auth/user';
 
+interface PayloadType{
+    user: UserModel,
+    accessToken: string,
+}
+
+interface Response{
+
+    payload: PayloadType
+    type: string
+}
 
 const storeUser: Middleware = store => next => action =>
 {
-    if(action.type === "user/signUpUser/fulfilled" || action.type === "user/signInUser/fulfilled"){
-        //localStorage.setItem("user", JSON.stringify(response.data));
+    let result: Response = next(action);
+
+    if(result.type === "user/signUpUser/fulfilled" || result.type === "user/signInUser/fulfilled"){
+        localStorage.setItem("accessToken", JSON.stringify(result.payload.accessToken));
+        localStorage.setItem("user", JSON.stringify(result.payload.user));
     }
     
-    let result = next(action);
 }
 
 export default storeUser;

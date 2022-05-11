@@ -11,9 +11,9 @@ function App() {
   return (
     <div>
         <Header/>
-        <PostsList />
+        {/* <PostsList /> */}
         {/* <AddNewPost/> */}
-        {/* <SignUp/> */}
+        <SignUp/>
         <SignIn/>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import Post from "./Post";
 import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "./postSlice";
+// import PostComponent from './Post';
 
 const PostsList: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ const PostsList: React.FC = () => {
     if (postStatus === 'loading') {
         content = <p>"Loading..."</p>;
     } else if (postStatus === 'succeeded') {
-        content = posts.map((post, index) => <Post key={index} {...post} />)
+        // content = posts.map((post, index) => <PostComponent key={index} {...post} />)
     } else if (postStatus === 'failed') {
         content = <p>{error}</p>;
     }
