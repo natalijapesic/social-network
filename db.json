@@ -1,18 +1,31 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server1",
-      "authorName": "test",
+      "id": 3,
+      "title": "title",
       "image": "https://place-hold.it/300",
-      "description": "post1"
+      "description": "wfwefew",
+      "authorName": "natalija",
+      "date": "Wed, 11 May 2022 14:02:22 GMT",
+      "likes": 0
     },
     {
-      "id": 2,
-      "title": "json-server2",
-      "authorName": "natalija",
+      "id": 4,
+      "title": "title2",
       "image": "https://place-hold.it/300",
-      "description": "post2"
+      "description": "dfghjk",
+      "authorName": "natalija",
+      "date": "Wed, 11 May 2022 14:04:33 GMT",
+      "likes": 0
+    },
+    {
+      "id": 5,
+      "title": "title2",
+      "image": "https://place-hold.it/300",
+      "description": "k",
+      "authorName": "natalija",
+      "date": "Wed, 11 May 2022 14:09:12 GMT",
+      "likes": 0
     }
   ],
   "users": [

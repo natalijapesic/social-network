@@ -73,6 +73,7 @@ const userSlice = createSlice({
         .addCase(signIn.fulfilled, (state, action: PayloadAction<UserResponse>) =>{
             state.status = "succeeded";
             action.payload.user.isAdmin = false;
+            state.user = action.payload.user;
         })
         .addCase(signUp.fulfilled, (state, action: PayloadAction<UserResponse>) =>{
             state.status = "succeeded";

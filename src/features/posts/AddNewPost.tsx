@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { getAuthUser } from "../auth/authenticationSlice";
 import { PostModel } from "./post";
+import { addNewPost } from "./postSlice";
 
 
 const AddNewPost = () => {
@@ -8,54 +10,23 @@ const AddNewPost = () => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [authorName, setUserAuthorName] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [image, setImage] = useState('');
 
-    // const users = useAppSelector()
-    // const onContentChanged = e => setContent(e.target.value)
-    // const onAuthorChanged = e => setUserId(e.target.value)
+    const user = useAppSelector(getAuthUser); //sta ako refresuje => middleware
 
 
-    // const canSave = [title, content, userId].every(Boolean) && addRequestStatus === 'idle';
-
-    // const onSavePostClicked = () => {
-    //     if (canSave) {
-    //         try {
-    //             setAddRequestStatus('pending')
-    //             dispatch(addNewPost({ title, body: content, userId })).unwrap()
-
-    //             setTitle('')
-    //             setContent('')
-    //             setUserId('')
-    //         } catch (err) {
-    //             console.error('Failed to save the post', err)
-    //         } finally {
-    //             setAddRequestStatus('idle')
-    //         }
-    //     }
-
-    // }
-
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        // event.preventDefault();
-        // const request = {
-        //     email,
-        //     password
-        // }
-        // signin(request);
+    const onSave = () => {
+        if(user != null){
+            const request = new PostModel(title, user.username, image, description);
+            
+            dispatch(addNewPost(request));
+        }
    }
-
-    // const usersOptions = users.map(user => (
-    //     <option key={user.id} value={user.id}>
-    //         {user.name}
-    //     </option>
-    // ))
 
     return (
         <section>
             <h2>Add a New Post</h2>
-            <form onSubmit={onSubmit}>
-                <label>Post Title:</label>
+            <form>
                 <input
                     type="text"
                     id="postTitle"
@@ -64,14 +35,21 @@ const AddNewPost = () => {
                     onChange = {(e) => setTitle(e.target.value)}
                     placeholder="Input post title"
                 />
-                <label htmlFor="postContent">Content:</label>
                 <textarea
                     id="postContent"
                     name="postContent"
                     value={description}
                     onChange = {(e) => setDescription(e.target.value)}
                 />
-                <button>Save Post</button>
+                <input 
+                    type="text"
+                    id="postImage"
+                    name="postImage"
+                    value={image}
+                    onChange = {(e) => setImage(e.target.value)}
+                    placeholder="Input image url"
+                />
+                <button onClick={onSave}>Save Post</button>
             </form>
         </section>
     )

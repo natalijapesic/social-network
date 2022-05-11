@@ -3,14 +3,17 @@ import SignIn from './features/auth/SignIn';
 // import SignUp from './features/auth/SignUp';
 import SignUp from './features/auth/SignUp';
 import Header from './features/header/Header';
+import AddNewPost from './features/posts/AddNewPost';
+import PostsList from './features/posts/PostList';
 // import PostsList from './features/posts/PostList';
 
 function App() {
   return (
     <div>
         <Header/>
-        {/* <PostsList /> */}
-        <SignUp/>
+        <PostsList />
+        {/* <AddNewPost/> */}
+        {/* <SignUp/> */}
         <SignIn/>
     </div>
   );

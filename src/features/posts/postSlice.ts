@@ -30,6 +30,13 @@ export const addNewPost = createAsyncThunk(
     return response.data;
 });
 
+// export const likePost = createAsyncThunk(
+//     'posts/likePost', 
+//     async (idPost: number) => {
+//     const response = await axios.put(`/posts`, JSON.stringify(newPost));
+//     return response.data;
+// });
+
 
 const postSlice = createSlice({
     name: 'posts',
@@ -59,10 +66,9 @@ const postSlice = createSlice({
             state.status = 'failed';
             state.error = action.error.message;
         })
-        .addCase(addNewPost.fulfilled, (state, action) => {
+        .addCase(addNewPost.fulfilled, (state, action: PayloadAction<PostModel>) => {
             action.payload.date = new Date().toUTCString();
             action.payload.likes = 0;
-            console.log(action.payload)
             state.posts.push(action.payload)
         })
     }
