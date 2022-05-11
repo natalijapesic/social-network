@@ -39,7 +39,7 @@ export const signIn = createAsyncThunk(
 
     //middleware
     if (response.status === 200) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
     }
 
     return response.data
