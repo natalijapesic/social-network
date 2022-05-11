@@ -36,12 +36,35 @@ const SignIn: React.FC = () => {
 //         content = "router /profile";
 //     }
 
-    return (
-    <div>
+return (
+    <div className="flex justify-center text-center mt-20">
+
         <form onSubmit={onSubmit}>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Input e-mail" />
-            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Input password" />
-            <button>SignIn</button>
+            <div className="mb-6">
+                <input
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Email address"
+                />
+            </div>
+            <div className="mb-6">
+                <input
+                value={password}
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Password"
+                />
+            </div>
+            <div>
+                <button 
+                    className="bg-white hover:bg-gray-100 text-gray-800  px-4 border border-gray-400 rounded shadow">
+                    SignIn
+                </button>
+            </div>
+            
         </form>
     </div>);
 }

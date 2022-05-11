@@ -1,4 +1,6 @@
 // import { Counter } from './features/counter/Counter';
+import SignIn from './features/auth/SignIn';
+// import SignUp from './features/auth/SignUp';
 import SignUp from './features/auth/SignUp';
 import Header from './features/header/Header';
 // import PostsList from './features/posts/PostList';
@@ -9,6 +11,7 @@ function App() {
         <Header/>
         {/* <PostsList /> */}
         <SignUp/>
+        <SignIn/>
     </div>
   );
 }

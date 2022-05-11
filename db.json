@@ -21,6 +21,18 @@
       "password": "$2a$10$NRYLg7wyFch6hIhVTH2ISebr/GoZYUtfckrNuD7BK556gtR.Drdki",
       "username": "natalija",
       "id": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$NbvISG1PhchWAPIV149k9u.aRS8rhrHfoGXljiynajt5o6CI27Wvy",
+      "username": "test",
+      "id": 2
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "$2a$10$buIFpsDTmNne1By2jvvqYuv/YtTdNMeQv4/jxjm7ZFmvU0CAGhvGG",
+      "username": "test1",
+      "id": 3
     }
   ]
 }
