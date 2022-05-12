@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserModel } from "./user";
 import axios from '../axiosSetUp';
 import { RootState } from "../../app/store";
+import storeService from '../../storeService';
 
 interface AuthState{
     
@@ -53,7 +54,8 @@ const userSlice = createSlice({
     reducers: {
         signOut:(state) =>{
             state.user = null;
-            localStorage.removeItem("accessToken");
+            storeService.removeFromStorage("accessToken");
+            storeService.removeFromStorage("user");
         }
     },
     extraReducers(builder){

@@ -2,7 +2,6 @@ import { PostModel } from "./post";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { likePost } from "./postSlice";
 import { getAuthUser } from "../auth/authenticationSlice";
-import { UserModel } from "../auth/user";
 
 interface PostProps{
   id: number;
@@ -21,14 +20,6 @@ const Post: React.FC<PostProps> = (post: PostProps) => {
   const dispatch = useAppDispatch();
   let user = useAppSelector(getAuthUser);
   
-  
-  if(user){
-    let userFromStorage = localStorage.getItem('user');
-    if(userFromStorage)
-    {
-      user = JSON.parse(userFromStorage);
-    }
-  }
 
   const onLike = () => {
 
