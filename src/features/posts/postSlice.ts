@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { PostModel } from "./post";
 import axios from '../axiosSetUp'
+import { UserModel } from "../auth/user";
 
 interface PostState{
     posts: PostModel[],
@@ -9,9 +10,9 @@ interface PostState{
     error: string | undefined
 }
 
-interface LikeModel{
-    likedPost: PostModel,
-    userId: number
+interface NewPostRequest{
+    newPost: PostModel,
+    user: UserModel,
 }
 
 const initialState: PostState =
@@ -28,15 +29,22 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 
 export const addNewPost = createAsyncThunk(
     'posts/addNewPost', 
-    async (newPost: PostModel) => {
-    const response = await axios.post<PostModel>(`/posts`, JSON.stringify(newPost));
-    return response.data;
+    async (request: NewPostRequest) => {
+        let {newPost, user} = request;
+        const postResponse = await axios.post<PostModel>(`/posts`, JSON.stringify(newPost));
+        let userResponse;
+        if(postResponse.status === 201){ //da li ide na rejected kada ne uspe request?
+            user.posts.push(postResponse.data.id);
+            userResponse = await axios.put(`/users/${user.id}`, JSON.stringify(user));
+        }
+
+        return postResponse.data;
 });
 
 export const likePost = createAsyncThunk(
     'posts/likePost', 
-    async (request: LikeModel) => {
-    const response = await axios.put(`/posts/${request.likedPost.id}`, JSON.stringify(request.likedPost));
+    async (likedPost: PostModel) => {
+    const response = await axios.put(`/posts/${likedPost.id}`, JSON.stringify(likedPost));
     
     return response.data;
 });

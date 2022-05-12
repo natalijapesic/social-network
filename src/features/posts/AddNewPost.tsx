@@ -17,16 +17,14 @@ const AddNewPost = () => {
 
     const onSave = () => {
         if(user != null){
-            const request = new PostModel(title, user.username, image, description);
-            
-            dispatch(addNewPost(request));
+            const newPost = new PostModel(title, user.username, image, description);
+            dispatch(addNewPost({newPost, user}));
         }
    }
 
     return (
         <section>
             <h2>Add a New Post</h2>
-            <form>
                 <input
                     type="text"
                     id="postTitle"
@@ -50,8 +48,8 @@ const AddNewPost = () => {
                     placeholder="Input image url"
                 />
                 <button onClick={onSave}>Save Post</button>
-            </form>
         </section>
-    )
+    );
 }
-export default AddNewPost
+
+export default AddNewPost;

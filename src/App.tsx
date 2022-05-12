@@ -1,4 +1,3 @@
-// import { Counter } from './features/counter/Counter';
 import SignIn from './features/auth/SignIn';
 // import SignUp from './features/auth/SignUp';
 import SignUp from './features/auth/SignUp';
@@ -7,13 +6,14 @@ import AddNewPost from './features/posts/AddNewPost';
 import PostsList from './features/posts/PostList';
 // import PostsList from './features/posts/PostList';
 
+// https://reactjs.org/docs/higher-order-components.html
 function App() {
   return (
     <div>
         <Header/>
         <SignIn/>
-        <PostsList />
-        {/* <AddNewPost/> */}
+        {/* <PostsList /> */}
+        <AddNewPost/>
         {/* <SignUp/> */}
     </div>
   );

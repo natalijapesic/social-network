@@ -32,7 +32,7 @@ const Post: React.FC<PostProps> = (post: PostProps) => {
       likedPost.date = post.date;
       likedPost.id = post.id;
       
-      dispatch(likePost({likedPost, userId: user.id}));
+      dispatch(likePost(likedPost));
     } 
   }
 

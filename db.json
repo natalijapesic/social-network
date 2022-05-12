@@ -1,12 +1,32 @@
 {
   "posts": [
     {
-      "id": 3,
+      "id": 1,
       "title": "title",
       "image": "https://place-hold.it/300",
-      "description": "wfwefew",
-      "authorName": "natalija",
-      "date": "Wed, 11 May 2022 14:02:22 GMT",
+      "description": "ytguhijklm",
+      "authorName": "test",
+      "date": "Thu, 12 May 2022 14:10:58 GMT",
+      "likes": 0,
+      "usersLikes": []
+    },
+    {
+      "id": 2,
+      "title": "title",
+      "image": "https://place-hold.it/300",
+      "description": "cgfhjbhkn",
+      "authorName": "test",
+      "date": "Thu, 12 May 2022 14:15:24 GMT",
+      "likes": 0,
+      "usersLikes": []
+    },
+    {
+      "id": 3,
+      "title": "title3",
+      "image": "https://place-hold.it/300",
+      "description": "vgjbhknlk",
+      "authorName": "test",
+      "date": "Thu, 12 May 2022 14:23:05 GMT",
       "likes": 0,
       "usersLikes": []
     },
@@ -14,47 +34,21 @@
       "id": 4,
       "title": "title2",
       "image": "https://place-hold.it/300",
-      "description": "dfghjk",
-      "authorName": "natalija",
-      "date": "Wed, 11 May 2022 14:04:33 GMT",
-      "likes": 0,
-      "usersLikes": []
-    },
-    {
-      "id": 5,
-      "title": "title2",
-      "image": "https://place-hold.it/300",
-      "description": "k",
-      "authorName": "natalija",
-      "date": "Wed, 11 May 2022 14:09:12 GMT",
+      "description": "vgbhjn",
+      "authorName": "test",
+      "date": "Thu, 12 May 2022 14:24:19 GMT",
       "likes": 0,
       "usersLikes": []
     }
   ],
   "users": [
     {
-      "email": "natalija@gmail.com",
-      "password": "$2a$10$NRYLg7wyFch6hIhVTH2ISebr/GoZYUtfckrNuD7BK556gtR.Drdki",
-      "username": "natalija",
-      "id": 1
-    },
-    {
       "email": "test@gmail.com",
-      "password": "$2a$10$NbvISG1PhchWAPIV149k9u.aRS8rhrHfoGXljiynajt5o6CI27Wvy",
+      "password": "$2a$10$xYhMrkdEdLy6Avk7GsTftertNLU3ofBA6r2i3uKuzS0WeWjrmZhEW",
+      "id": 1,
       "username": "test",
-      "id": 2
-    },
-    {
-      "email": "test1@gmail.com",
-      "password": "$2a$10$buIFpsDTmNne1By2jvvqYuv/YtTdNMeQv4/jxjm7ZFmvU0CAGhvGG",
-      "username": "test1",
-      "id": 3
-    },
-    {
-      "email": "nevena@gmail.com",
-      "password": "$2a$10$UUQ/d1SZ680SCyENyTx.R.hx4nDgiOvqv3gypB2lr3/KkLbZhSQji",
-      "username": "nevena",
-      "id": 4
+      "isAdmin": false,
+      "posts": []
     }
   ]
 }
