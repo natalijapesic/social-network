@@ -7,7 +7,7 @@ export class PostModel{
     authorName: string;
     date: string;
     likes: number;
-    usersLike: number[]
+    usersLikes: number[];
 
 
     constructor(title: string, authorName: string, image: string, description: string) {
@@ -19,21 +19,20 @@ export class PostModel{
         this.description = description;
         this.date = new Date().toUTCString();
         this.likes = 0;
-        this.usersLike = [];
+        this.usersLikes = [];
         
     }
 
     public userLiked(userId: number){
         
-        const index = this.usersLike.indexOf(userId, 0);
-        console.log(index);
+        const index = this.usersLikes.indexOf(userId);
 
         if (index > -1) {
-            this.usersLike.splice(index, 1);
-            this.likes -=1;
+            this.usersLikes.splice(index, 1);
+            this.likes--;
         } else{
-            this.usersLike.push(userId);
-            this.likes +=1;
+            this.usersLikes.push(userId);
+            this.likes++;
         }
     }
 

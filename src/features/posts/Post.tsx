@@ -12,11 +12,15 @@ interface PostProps{
   authorName: string;
   date: string;
   likes: number;
+  usersLikes: number[];
 }
+
+
 const Post: React.FC<PostProps> = (post: PostProps) => {
 
   const dispatch = useAppDispatch();
   let user = useAppSelector(getAuthUser);
+  
   
   if(user){
     let userFromStorage = localStorage.getItem('user');
@@ -31,12 +35,13 @@ const Post: React.FC<PostProps> = (post: PostProps) => {
     if(user)
     {
       let likedPost = new PostModel(post.title, post.authorName, post.image, post.description);
-
+      likedPost.usersLikes = [...post.usersLikes];
+      likedPost.likes = post.likes;
       likedPost.userLiked(user.id)
       likedPost.date = post.date;
       likedPost.id = post.id;
-  
-      dispatch(likePost(likedPost));
+      
+      dispatch(likePost({likedPost, userId: user.id}));
     } 
   }
 

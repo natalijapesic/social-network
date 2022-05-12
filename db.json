@@ -7,10 +7,8 @@
       "description": "wfwefew",
       "authorName": "natalija",
       "date": "Wed, 11 May 2022 14:02:22 GMT",
-      "likes": 1,
-      "usersLike": [
-        1
-      ]
+      "likes": 0,
+      "usersLikes": []
     },
     {
       "id": 4,
@@ -19,10 +17,8 @@
       "description": "dfghjk",
       "authorName": "natalija",
       "date": "Wed, 11 May 2022 14:04:33 GMT",
-      "likes": 1,
-      "usersLike": [
-        1
-      ]
+      "likes": 0,
+      "usersLikes": []
     },
     {
       "id": 5,
@@ -31,10 +27,8 @@
       "description": "k",
       "authorName": "natalija",
       "date": "Wed, 11 May 2022 14:09:12 GMT",
-      "likes": 1,
-      "usersLike": [
-        1
-      ]
+      "likes": 0,
+      "usersLikes": []
     }
   ],
   "users": [

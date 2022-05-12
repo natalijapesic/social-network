@@ -9,6 +9,11 @@ interface PostState{
     error: string | undefined
 }
 
+interface LikeModel{
+    likedPost: PostModel,
+    userId: number
+}
+
 const initialState: PostState =
 {
     posts: [],
@@ -30,8 +35,9 @@ export const addNewPost = createAsyncThunk(
 
 export const likePost = createAsyncThunk(
     'posts/likePost', 
-    async (likedPost: PostModel) => {
-    const response = await axios.put(`/posts/${likedPost.id}`, JSON.stringify(likedPost));
+    async (request: LikeModel) => {
+    const response = await axios.put(`/posts/${request.likedPost.id}`, JSON.stringify(request.likedPost));
+    
     return response.data;
 });
 
@@ -70,7 +76,16 @@ const postSlice = createSlice({
             state.posts.push(action.payload)
         })
         .addCase(likePost.fulfilled, (state, action: PayloadAction<PostModel>) => {
-            state.posts.push(action.payload)
+            
+            const likedPost = action.payload;
+            console.log(likedPost);
+            let postFromState = state.posts.find(el => el.id == likedPost.id);
+
+            if(postFromState)
+            {
+                postFromState.likes = likedPost.likes
+                postFromState.usersLikes = [...likedPost.usersLikes];
+            }
         })
     }
 })
