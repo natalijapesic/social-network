@@ -3,8 +3,6 @@ import { RootState } from "../../app/store";
 import { PostModel } from "./post";
 import axios from '../axiosSetUp'
 
-
-
 interface PostState{
     posts: PostModel[],
     status: string;
@@ -33,7 +31,7 @@ export const addNewPost = createAsyncThunk(
 export const likePost = createAsyncThunk(
     'posts/likePost', 
     async (likedPost: PostModel) => {
-    const response = await axios.put(`/posts`, JSON.stringify(likedPost));
+    const response = await axios.put(`/posts/${likedPost.id}`, JSON.stringify(likedPost));
     return response.data;
 });
 

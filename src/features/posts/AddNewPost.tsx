@@ -12,7 +12,7 @@ const AddNewPost = () => {
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
 
-    const user = useAppSelector(getAuthUser); //sta ako refresuje => middleware
+    const user = useAppSelector(getAuthUser); 
 
 
     const onSave = () => {

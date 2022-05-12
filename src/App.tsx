@@ -11,10 +11,10 @@ function App() {
   return (
     <div>
         <Header/>
-        {/* <PostsList /> */}
-        {/* <AddNewPost/> */}
-        <SignUp/>
         <SignIn/>
+        <PostsList />
+        {/* <AddNewPost/> */}
+        {/* <SignUp/> */}
     </div>
   );
 }

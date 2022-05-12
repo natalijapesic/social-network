@@ -3,6 +3,7 @@ import config from './app.config.json'
 
 axios.defaults.baseURL = `${config.server}`;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.put['Content-Type'] = 'application/json';
 
 //axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
 
