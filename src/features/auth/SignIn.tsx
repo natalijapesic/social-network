@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getAuthUser, signIn } from "./authenticationSlice";
 
@@ -13,9 +14,9 @@ const SignIn: React.FC = () => {
     
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    let navigate = useNavigate();
     
     
-
    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const request = {
@@ -24,6 +25,8 @@ const SignIn: React.FC = () => {
         }
 
         dispatch(signIn(request));
+
+        navigate("/");
    }
 
 //    let content;

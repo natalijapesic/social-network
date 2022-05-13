@@ -79,7 +79,7 @@ const postSlice = createSlice({
             
             const likedPost = action.payload;
             console.log(likedPost);
-            let postFromState = state.posts.find(el => el.id == likedPost.id);
+            let postFromState = state.posts.find(el => el.id === likedPost.id);
 
             if(postFromState)
             {

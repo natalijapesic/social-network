@@ -1,19 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { getAuthUser, signUp } from "./authenticationSlice";
-
-
-const SignUp: React.FC = () => {
-
-    const dispatch = useAppDispatch();
+import { signUp } from "./authenticationSlice";
 
     // const user = useAppSelector(getAuthUser);
     // const status = useAppSelector(getAuthStatus);
     // const error = useAppSelector(getAuthError);
-    
+
+const SignUp: React.FC = () => {
+
+    const dispatch = useAppDispatch();
+    let navigate = useNavigate();
+
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+
     
     
 
@@ -26,6 +28,7 @@ const SignUp: React.FC = () => {
         }
 
         dispatch(signUp(request));
+        navigate("/");
    }
 
 //    let content;
@@ -70,7 +73,7 @@ const SignUp: React.FC = () => {
                 />
             </div>
             <div>
-                <button 
+                <button  
                     className="bg-white hover:bg-gray-100 text-gray-800  px-4 border border-gray-400 rounded shadow">
                     SignUp
                 </button>

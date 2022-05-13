@@ -55,6 +55,12 @@
       "password": "$2a$10$UUQ/d1SZ680SCyENyTx.R.hx4nDgiOvqv3gypB2lr3/KkLbZhSQji",
       "username": "nevena",
       "id": 4
+    },
+    {
+      "email": "novi@gmail.com",
+      "password": "$2a$10$7QPGiiRo/SoEdZ2pqd6RI.K6B8aByNGlICAN62L.ESFog.yWTvw86",
+      "username": "novi",
+      "id": 5
     }
   ]
 }

@@ -2,7 +2,6 @@ import { PostModel } from "./post";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { likePost } from "./postSlice";
 import { getAuthUser } from "../auth/authenticationSlice";
-import { UserModel } from "../auth/user";
 
 interface PostProps{
   id: number;

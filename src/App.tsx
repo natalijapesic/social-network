@@ -1,20 +1,9 @@
-// import { Counter } from './features/counter/Counter';
-import SignIn from './features/auth/SignIn';
-// import SignUp from './features/auth/SignUp';
-import SignUp from './features/auth/SignUp';
-import Header from './features/header/Header';
-import AddNewPost from './features/posts/AddNewPost';
-import PostsList from './features/posts/PostList';
-// import PostsList from './features/posts/PostList';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-        <Header/>
-        <SignIn/>
-        <PostsList />
-        {/* <AddNewPost/> */}
-        {/* <SignUp/> */}
+      <Outlet/>
     </div>
   );
 }
