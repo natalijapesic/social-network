@@ -32,11 +32,11 @@ export const addNewPost = createAsyncThunk(
     async (request: NewPostRequest) => {
         let {newPost, user} = request;
         const postResponse = await axios.post<PostModel>(`/posts`, JSON.stringify(newPost));
-        let userResponse;
-        if(postResponse.status === 201){ //da li ide na rejected kada ne uspe request?
-            user.posts.push(postResponse.data.id);
-            userResponse = await axios.put(`/users/${user.id}`, JSON.stringify(user));
-        }
+        
+        // if(postResponse.status === 201){ //da li ide na rejected kada ne uspe request?
+        //     user.posts.push(postResponse.data.id);
+        //     userResponse = await axios.put(`/users/${user.id}`, JSON.stringify(user));
+        // }
 
         return postResponse.data;
 });
