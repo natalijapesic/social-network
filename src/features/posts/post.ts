@@ -8,9 +8,10 @@ export class PostModel{
     date: string;
     likes: number;
     usersLikes: number[];
+    userId:number;
 
 
-    constructor(title: string, authorName: string, image: string, description: string) {
+    constructor(title: string, authorName: string, image: string, description: string, userId: number) {
         
         this.id = 0;
         this.title = title;
@@ -20,6 +21,7 @@ export class PostModel{
         this.date = new Date().toUTCString();
         this.likes = 0;
         this.usersLikes = [];
+        this.userId = userId;
         
     }
 

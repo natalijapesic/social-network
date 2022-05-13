@@ -42,7 +42,8 @@ export const signIn = createAsyncThunk(
 export const signUp = createAsyncThunk(
     'user/signUpUser', 
     async (request: SignUpRequest) => {
-    const response = await axios.post<UserResponse>('/register', JSON.stringify(request));
+    let newUser = new UserModel(request.username, request.email, request.password);
+    const response = await axios.post<UserResponse>('/register', JSON.stringify(newUser));
     return response.data
 });
 

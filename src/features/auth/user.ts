@@ -5,7 +5,6 @@ export class UserModel{
     email: string;
     password: string;
     isAdmin: boolean;
-    posts: number[]
 
     constructor(name: string, email: string, password: string) {
         this.id = 0;
@@ -13,7 +12,6 @@ export class UserModel{
         this.email = email;
         this.password = password;
         this.isAdmin = false;
-        this.posts = [];
     }
 
 }

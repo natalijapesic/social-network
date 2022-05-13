@@ -9,6 +9,7 @@ import Header from './features/header/Header';
 import AddNewPost from './features/posts/AddNewPost';
 import SignUp from './features/auth/SignUp';
 import SignIn from './features/auth/SignIn';
+import PostsList from './features/posts/PostList';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -19,7 +20,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
-          <Route index element={<Header/>}/>
+          <Route path="/" element={<Header/>}>      
+            <Route index element={<PostsList/>}/> 
+          </Route>
           <Route path="newPost" element={<AddNewPost/>}/>
           <Route path="signIn" element={<SignIn/>}/>
           <Route path="signUp" element={<SignUp/>}/>

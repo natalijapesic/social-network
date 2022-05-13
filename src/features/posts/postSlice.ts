@@ -37,7 +37,6 @@ export const likePost = createAsyncThunk(
     'posts/likePost', 
     async (request: LikeModel) => {
     const response = await axios.put(`/posts/${request.likedPost.id}`, JSON.stringify(request.likedPost));
-    
     return response.data;
 });
 
@@ -50,9 +49,9 @@ const postSlice = createSlice({
             reducer(state, action: PayloadAction<PostModel>){
                 state.posts.push(action.payload);
             },
-            prepare(description, title, imageUrl, authorName){
+            prepare(description, title, imageUrl, authorName, userId){
                 return {
-                    payload: new PostModel(title, authorName, imageUrl, description)
+                    payload: new PostModel(title, authorName, imageUrl, description, userId)
                 }
             }
         }

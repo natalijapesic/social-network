@@ -12,6 +12,7 @@ interface PostProps{
   date: string;
   likes: number;
   usersLikes: number[];
+  userId:number;
 }
 
 
@@ -33,7 +34,7 @@ const Post: React.FC<PostProps> = (post: PostProps) => {
 
     if(user)
     {
-      let likedPost = new PostModel(post.title, post.authorName, post.image, post.description);
+      let likedPost = new PostModel(post.title, post.authorName, post.image, post.description, post.userId);
       likedPost.usersLikes = [...post.usersLikes];
       likedPost.likes = post.likes;
       likedPost.userLiked(user.id)
