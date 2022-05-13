@@ -1,23 +1,24 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "../../app/store";
 import { CommentModel } from "./comment";
 
 
 interface CommentState{
-    comments: CommentModel[],
+    list: CommentModel[],
     status: string;
     error: string | undefined
 }
 
 const initialState: CommentState =
 {
-    comments: [],
+    list: [],
     status: 'idle',
     error: undefined
 }
 
 export const fetchComments = createAsyncThunk('posts/fetchComments', async () => {
-    const response = await axios.get<CommentModel[]>(`/posts`);
+    const response = await axios.get<CommentModel[]>(`/comments`);
     return response.data
 });
 
@@ -39,7 +40,7 @@ const commentSlice = createSlice({
         })
         .addCase(fetchComments.fulfilled, (state, action) =>{
             state.status = 'succeeded';
-            state.comments = action.payload;
+            state.list = action.payload;
         })
         .addCase(fetchComments.rejected, (state, action) =>{
             state.status = 'failed';
@@ -47,7 +48,7 @@ const commentSlice = createSlice({
         })
         .addCase(addComment.fulfilled, (state, action: PayloadAction<CommentModel>) => {
             action.payload.date = new Date().toUTCString();
-            state.comments.push(action.payload)
+            state.list.push(action.payload)
         })
         .addCase(addComment.pending, (state) => {
             state.status = 'loading';
@@ -58,3 +59,9 @@ const commentSlice = createSlice({
         })
     }
 });
+
+export const selectAllComments = (state: RootState) => state.comments.list;
+export const getCommentsStatus = (state: RootState) => state.comments.status;
+export const getCommentsError = (state: RootState) => state.comments.error;
+
+export default commentSlice.reducer;
