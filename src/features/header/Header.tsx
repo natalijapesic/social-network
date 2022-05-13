@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
                 <div>
                     <button className= "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
-                        <Link to="newPost">Create Post</Link>
+                        <Link to="createPost">Create Post</Link>
                     </button>
                     <button className= "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
                         <Link to="signIn">SignIn</Link>

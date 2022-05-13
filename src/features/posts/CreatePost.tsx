@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getAuthUser } from "../auth/authenticationSlice";
 import { PostModel } from "./post";
-import { addNewPost } from "./postSlice";
+import { addPost } from "./postSlice";
 
 
-const AddNewPost = () => {
+const createPost = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const AddNewPost = () => {
         if(user != null){
             const request = new PostModel(title, user.username, image, description, user.id);
             
-            dispatch(addNewPost(request));
+            dispatch(addPost(request));
             navigate("/");
         }
    }
@@ -55,4 +55,4 @@ const AddNewPost = () => {
         </section>
     );
 }
-export default AddNewPost
+export default createPost

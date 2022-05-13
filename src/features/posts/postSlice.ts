@@ -26,8 +26,8 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     return response.data
 });
 
-export const addNewPost = createAsyncThunk(
-    'posts/addNewPost', 
+export const addPost = createAsyncThunk(
+    'posts/addPost', 
     async (newPost: PostModel) => {
     const response = await axios.post<PostModel>(`/posts`, JSON.stringify(newPost));
     return response.data;
@@ -45,7 +45,7 @@ const postSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        postAdded: {
+        postCreated: {
             reducer(state, action: PayloadAction<PostModel>){
                 state.posts.push(action.payload);
             },
@@ -69,10 +69,17 @@ const postSlice = createSlice({
             state.status = 'failed';
             state.error = action.error.message;
         })
-        .addCase(addNewPost.fulfilled, (state, action: PayloadAction<PostModel>) => {
+        .addCase(addPost.fulfilled, (state, action: PayloadAction<PostModel>) => {
             action.payload.date = new Date().toUTCString();
             action.payload.likes = 0;
             state.posts.push(action.payload)
+        })
+        .addCase(addPost.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.error.message;
+        })
+        .addCase(addPost.pending, (state) => {
+            state.status = 'loading';
         })
         .addCase(likePost.fulfilled, (state, action: PayloadAction<PostModel>) => {
             
@@ -93,5 +100,5 @@ export const selectAllPosts = (state: RootState) => state.posts.posts;
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
 
-export const { postAdded } = postSlice.actions;
+export const { postCreated } = postSlice.actions;
 export default postSlice.reducer;
