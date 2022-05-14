@@ -44,7 +44,6 @@ export const signUp = createAsyncThunk(
     async (request: SignUpRequest) => {
     let newUser = new UserModel(request.username, request.email, request.password);
         const response = await axios.post<UserResponse>('/register', JSON.stringify(newUser));
-        console.log(response);
     return response.data
 });
 
@@ -53,8 +52,11 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        signOut:(state) =>{
+        signOut:(state) => {
             state.user = null;
+        },
+        refreshUserStore: (state, action: PayloadAction<UserModel>) => {
+            state.user = action.payload;
         }
     },
     extraReducers(builder){
@@ -72,10 +74,10 @@ const userSlice = createSlice({
     }
 })
 
-export const { signOut } = userSlice.actions;
+export const { signOut, refreshUserStore } = userSlice.actions;
 
 export const getAuthUser = (state: RootState) => state.auth.user;
-// export const getAuthStatus = (state: RootState) => state.auth.status;
-// export const getAuthError = (state: RootState) => state.auth.error;
+export const getAuthStatus = (state: RootState) => state.auth.status;
+export const getAuthError = (state: RootState) => state.auth.error;
 
 export default userSlice.reducer;

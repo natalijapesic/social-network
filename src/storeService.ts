@@ -1,7 +1,5 @@
-interface UserCredentials{
-    email:string,
-    password:string,
-}
+import { UserModel } from "./features/auth/user";
+
 
 class StoreService{
 
@@ -9,15 +7,15 @@ class StoreService{
         localStorage.setItem("accessToken", JSON.stringify(token));
     }
 
-    setUser(isAdmin: boolean){
-        localStorage.setItem("user", JSON.stringify(isAdmin));
+    setUser(user: UserModel){
+        localStorage.setItem("user", JSON.stringify(user));
     }
 
     getAccessToken():string | null{
         return localStorage.getItem("accessToken");
     }
 
-    getUserCredentials():UserCredentials | null{
+    getUser():UserModel | null{
         const dataFromStorage = localStorage.getItem("user");
         if(dataFromStorage)
             return JSON.parse(dataFromStorage);
