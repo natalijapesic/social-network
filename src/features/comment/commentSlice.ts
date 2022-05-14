@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../../app/store";
-import { CommentModel } from "./comment";
+import { CommentModel } from "./commentModel";
 
 
 interface CommentState{

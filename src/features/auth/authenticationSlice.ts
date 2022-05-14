@@ -43,7 +43,8 @@ export const signUp = createAsyncThunk(
     'user/signUpUser', 
     async (request: SignUpRequest) => {
     let newUser = new UserModel(request.username, request.email, request.password);
-    const response = await axios.post<UserResponse>('/register', JSON.stringify(newUser));
+        const response = await axios.post<UserResponse>('/register', JSON.stringify(newUser));
+        console.log(response);
     return response.data
 });
 
@@ -54,7 +55,6 @@ const userSlice = createSlice({
     reducers: {
         signOut:(state) =>{
             state.user = null;
-            localStorage.removeItem("accessToken");
         }
     },
     extraReducers(builder){

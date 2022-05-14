@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getAuthUser } from "../auth/authenticationSlice";
-import { CommentModel } from "./comment";
+import { CommentModel } from "./commentModel";
 import { addComment } from "./commentSlice";
 
 interface CreateCommentProps{

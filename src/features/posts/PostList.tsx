@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "./postSlice";
-import Post from './Post';
+import Post from './PostComponent'
 
 const PostsList: React.FC = () => {
     const dispatch = useAppDispatch();

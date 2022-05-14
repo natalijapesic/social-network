@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "new post",
-      "image": "https://place-hold.it/300\"",
+      "image": "https://place-hold.it/300",
       "description": "fgdgd",
       "authorName": "test",
       "date": "Fri, 13 May 2022 11:56:02 GMT",
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "title": "new post3",
-      "image": "https://place-hold.it/300\"",
+      "image": "https://place-hold.it/300",
       "description": "fefwefe",
       "authorName": "test",
       "date": "Fri, 13 May 2022 13:08:42 GMT",
@@ -24,13 +24,20 @@
       "userId": 1
     }
   ],
-  "comments":[],
+  "comments": [],
   "users": [
     {
       "email": "test@gmail.com",
       "password": "$2a$10$ukROAFvvmH7vmmV6rSiVTeDziBsyHNje88f.PaoqK81vPlrWjLEPa",
       "id": 1,
       "username": "test",
+      "isAdmin": false
+    },
+    {
+      "email": "ivana@gmail.com",
+      "password": "$2a$10$KgE5v7a7e0jxIndNCPspAeEslISZXnhJH8.r7Mx3xOFoRB5O0TK9O",
+      "id": 2,
+      "username": "ivana",
       "isAdmin": false
     }
   ]

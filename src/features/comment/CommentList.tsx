@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import Comment from './Comment';
+import Comment from './CommentComponent';
 import { fetchComments, getCommentsError, getCommentsStatus, selectAllComments } from "./commentSlice";
 
 const CommentList: React.FC = () => {

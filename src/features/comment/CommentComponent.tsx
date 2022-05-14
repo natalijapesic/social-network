@@ -1,4 +1,3 @@
-import { CommentModel } from "./comment";
 
 interface CommentProps{
 
