@@ -1,11 +1,10 @@
-import { PostModel } from "./postModel";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { likePost } from "./postSlice";
 import { getAuthUser } from "../auth/authenticationSlice";
-import { Outlet } from "react-router-dom";
 import CommentList from "../comment/CommentList";
+import { PostModel } from "../../models";
 
-interface PostProps{
+interface IProps{
   id: number;
   title: string;
   image: string;
@@ -18,7 +17,7 @@ interface PostProps{
 }
 
 
-const Post: React.FC<PostProps> = (post: PostProps) => {
+const Post: React.FC<IProps> = (post: IProps) => {
 
   const dispatch = useAppDispatch();
   let user = useAppSelector(getAuthUser);

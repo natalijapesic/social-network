@@ -14,13 +14,14 @@ import CreatePost from './features/posts/CreatePost';
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
-          <Route path="/" element={<Header/>}>      
+            <Route path="/" element={<Header />}>      
               <Route index element={<PostsList />} /> 
           </Route>
           <Route path="createPost" element={<CreatePost/>}/>

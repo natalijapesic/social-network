@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useAppDispatch } from './app/hooks';
 import { refreshUserStore } from './features/auth/authenticationSlice';
-import { UserModel } from './features/auth/user';
+import { UserModel } from './models';
 import storeService from './storeService';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <Outlet/>
+      <Outlet />
     </div>
   );
 }

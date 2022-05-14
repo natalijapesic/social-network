@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { CommentModel } from "../../models/comment";
 import { getAuthUser } from "../auth/authenticationSlice";
-import { CommentModel } from "./commentModel";
 import { addComment } from "./commentSlice";
 
-interface CreateCommentProps{
+interface IProps{
     postId:number;
 }
-const CreateComment: React.FC<CreateCommentProps> = (props: CreateCommentProps) =>{
+const CreateComment: React.FC<IProps> = (props: IProps) =>{
     
     const dispatch = useAppDispatch();
     const user = useAppSelector(getAuthUser); 

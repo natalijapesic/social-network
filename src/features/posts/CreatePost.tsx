@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { PostModel } from "../../models";
 import { getAuthUser } from "../auth/authenticationSlice";
-import { PostModel } from "./postModel";
 import { addPost } from "./postSlice";
 
 

@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import { signOut } from "../auth/authenticationSlice";
 
+
 const Header: React.FC = () => {
 
     //onChange={(e) => searchPosts(e.target.value)} 

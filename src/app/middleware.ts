@@ -1,5 +1,5 @@
 import { Middleware } from '@reduxjs/toolkit';
-import { UserModel } from '../features/auth/user';
+import { UserModel } from '../models';
 import storeService from '../storeService';
 
 interface PayloadType{

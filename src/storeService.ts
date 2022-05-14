@@ -1,4 +1,4 @@
-import { UserModel } from "./features/auth/user";
+import { UserModel } from "./models";
 
 
 class StoreService{

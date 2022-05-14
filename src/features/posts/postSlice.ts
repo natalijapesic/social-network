@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { PostModel } from "./postModel";
+import { PostModel } from "../../models";
 import axios from '../axiosSetUp'
 
 interface PostState{
