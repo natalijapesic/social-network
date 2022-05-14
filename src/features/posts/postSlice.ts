@@ -6,8 +6,6 @@ import axios from '../axiosSetUp'
 interface PostState{
     posts: PostModel[],
     status: string,
-    page: number,
-    limit: number,
     error: string | undefined
 }
 
@@ -25,17 +23,14 @@ interface PageRequest{
 const initialState: PostState =
 {
     posts: [],
-    page: 0,
     status: 'idle',
     error: undefined,
-    limit: 5
 }
                                        
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (request: PageRequest) => {
         const response = await axios.get(`/posts?_page=${request.page}&_limit=${request.limit}`);
-        console.log(response);
         return response.data;
 });
 
@@ -67,18 +62,6 @@ const postSlice = createSlice({
                     payload: new PostModel(title, authorName, imageUrl, description, userId)
                 }
             }
-        },
-        nextPage: (state) => {
-            state.page += 1;
-        },
-        previousPage: (state) => {
-            state.page -= 1;
-        },
-        resetPage: (state) => {
-            state.page = 0;
-        },
-        setLimit: (state, action: PayloadAction<number>) => {
-            state.limit = action.payload;
         }
     },
     extraReducers(builder){
@@ -124,8 +107,6 @@ const postSlice = createSlice({
 export const selectAllPosts = (state: RootState) => state.posts.posts;
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
-export const currentPage = (state: RootState) => state.posts.page;
-export const pageLimit = (state: RootState) => state.posts.limit;
 
-export const { postCreated, resetPage, previousPage, nextPage, setLimit } = postSlice.actions;
+export const { postCreated } = postSlice.actions;
 export default postSlice.reducer;

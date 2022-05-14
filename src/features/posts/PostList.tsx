@@ -1,23 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { currentPage, fetchPosts, getPostsError, getPostsStatus, pageLimit, selectAllPosts } from "./postSlice";
+import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "./postSlice";
 import Post from './Post'
 
 
 const PostsList: React.FC = () => {
     const dispatch = useAppDispatch();
 
-    const posts = useAppSelector(selectAllPosts);
-    const postStatus = useAppSelector(getPostsStatus);
-    const error = useAppSelector(getPostsError);
-    let page = useAppSelector(currentPage);
-    let limit = useAppSelector(pageLimit);
+    let posts = useAppSelector(selectAllPosts);
+    let postStatus = useAppSelector(getPostsStatus);
+    let error = useAppSelector(getPostsError);
+
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(5);
 
     useEffect(() => {
-        if (postStatus === 'idle') {
-            dispatch(fetchPosts({page, limit}))
+        if (postStatus === 'idle' || postStatus === 'succeeded') {
+            dispatch(fetchPosts({ page, limit }));
         }
-    }, [postStatus, dispatch])
+    }, [page, limit])
+
 
     let content;
     if (postStatus === 'loading') {
@@ -29,9 +31,24 @@ const PostsList: React.FC = () => {
     }
     
     return (
-        <section className="flex-row items-center">
-            {content}
-        </section>
+        <div>
+            <select
+                name="pageLimit"
+                id="pageLimit"
+                onChange={(e) => setLimit(parseInt(e.target.value))}>
+                
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+
+            </select>
+            <section className="flex-row items-center">
+                {content}
+            </section>
+            <button
+                onClick={() => setPage((page) => page + 1)}>Next page</button>
+        </div>
+
     )
 }
 export default PostsList
