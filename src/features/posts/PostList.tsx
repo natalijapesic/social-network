@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "./postSlice";
+import { currentPage, fetchPosts, getPostsError, getPostsStatus, pageLimit, selectAllPosts } from "./postSlice";
 import Post from './Post'
+
 
 const PostsList: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -9,10 +10,12 @@ const PostsList: React.FC = () => {
     const posts = useAppSelector(selectAllPosts);
     const postStatus = useAppSelector(getPostsStatus);
     const error = useAppSelector(getPostsError);
+    let page = useAppSelector(currentPage);
+    let limit = useAppSelector(pageLimit);
 
     useEffect(() => {
         if (postStatus === 'idle') {
-            dispatch(fetchPosts())
+            dispatch(fetchPosts({page, limit}))
         }
     }, [postStatus, dispatch])
 
