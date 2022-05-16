@@ -134,7 +134,40 @@
       "userId": 1
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "id": 1,
+      "description": "novi komentar",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 1,
+      "date": "Sun, 15 May 2022 11:50:30 GMT"
+    },
+    {
+      "id": 2,
+      "description": "novi komentar",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 2,
+      "date": "Sun, 15 May 2022 11:50:30 GMT"
+    },
+    {
+      "id": 3,
+      "description": "novi komentar",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 2,
+      "date": "Sun, 15 May 2022 11:50:30 GMT"
+    },
+    {
+      "id": 4,
+      "description": "ovde nisam dodala",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 5,
+      "date": "Sun, 15 May 2022 12:12:28 GMT"
+    }
+  ],
   "users": [
     {
       "email": "test@gmail.com",

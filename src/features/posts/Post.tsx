@@ -3,6 +3,7 @@ import { likePost } from "./postSlice";
 import { getAuthUser } from "../auth/authenticationSlice";
 import CommentList from "../comment/CommentList";
 import { PostModel } from "../../models";
+import CreateComment from "../comment/CreateComment";
 
 interface IProps{
   id: number;
@@ -38,24 +39,22 @@ const Post: React.FC<IProps> = (post: IProps) => {
   }
 
   return (
-    <div>
-      <article 
-      className="flex-column border-l-4 m-6">
-        <span>{post.date}</span>
-        <img src={post.image}/>
-        {
-          user && 
-          <button
-            value={post.id}
-            onClick={onLike}>
-              Like
-          </button>
-        }
-        <div>
-          <p><span>{post.authorName}:</span>{post.description.substring(0, 100)}</p>
-        </div>
-      </article>
-      <CommentList />
+    <div className="flex-column">
+      <span>{post.date}</span>
+      <img src={post.image} />
+      {
+        user &&
+        <button
+          value={post.id}
+          onClick={onLike}>
+          Like
+        </button>
+      }
+      <div>
+        <p><span>{post.authorName}:</span>{post.description.substring(0, 100)}</p>
+      </div>
+      <CreateComment postId={post.id} />
+      <CommentList postId={post.id} />
     </div>
 
   );

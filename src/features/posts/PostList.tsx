@@ -33,6 +33,7 @@ const PostsList: React.FC = () => {
     return (
         <div>
             <select
+                className="bg-gray-900 focus:cyan-500"
                 name="pageLimit"
                 id="pageLimit"
                 onChange={(e) => setLimit(parseInt(e.target.value))}>
@@ -42,13 +43,13 @@ const PostsList: React.FC = () => {
                 <option value="15">15</option>
 
             </select>
-            <section className="flex-row items-center">
+            <div className="flex-wrap ">
                 {content}
-            </section>
+            </div>
             <button
                 onClick={() => setPage((page) => page + 1)}>Next page</button>
         </div>
 
-    )
-}
+    );
+};
 export default PostsList

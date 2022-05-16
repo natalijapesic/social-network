@@ -21,12 +21,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
-            <Route path="/" element={<Header />}>      
-              <Route index element={<PostsList />} /> 
+          <Route path="/" element={<Header />}>      
+            <Route index element={<PostsList />} /> 
           </Route>
-          <Route path="createPost" element={<CreatePost/>}/>
-          <Route path="signIn" element={<SignIn/>}/>
-          <Route path="signUp" element={<SignUp/>}/>
+          <Route path="createPost" element={<CreatePost />} />
+          <Route path="signIn" element={<SignIn/>} />
+          <Route path="signUp" element={<SignUp/>} />
         </Route>
       </Routes>
       </BrowserRouter>

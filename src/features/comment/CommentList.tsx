@@ -3,7 +3,12 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Comment from './Comment';
 import { fetchComments, getCommentsError, getCommentsStatus, selectAllComments } from "./commentSlice";
 
-const CommentList: React.FC = () => {
+
+interface IProps{
+    postId: number;
+}
+
+const CommentList: React.FC<IProps> = (props: IProps) => {
     const dispatch = useAppDispatch();
 
     const comments = useAppSelector(selectAllComments);
@@ -20,7 +25,8 @@ const CommentList: React.FC = () => {
     if (commentsStatus === 'loading') {
         content = <p>"Loading..."</p>;
     } else if (commentsStatus === 'succeeded') {
-        content = comments.map((comment, index) => <Comment key={index} {...comment} />)
+        content = comments.filter((comment) => comment.postId === props.postId)
+                          .map((comment, index) => <Comment key={index} {...comment} />)
     } else if (commentsStatus === 'failed') {
         content = <p>{error}</p>;
     }
