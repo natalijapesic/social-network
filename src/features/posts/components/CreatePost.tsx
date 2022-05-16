@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { PostModel } from "../../models";
-import { getAuthUser } from "../auth/authenticationSlice";
-import { addPost } from "./postSlice";
+import { PostModel } from "../../../models";
+import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
+import { getAuthUser } from "../../auth/authenticationSlice";
+import { addPost } from "../postSlice";
+
 
 
 const CreatePost = () => {
@@ -27,9 +28,10 @@ const CreatePost = () => {
    }
 
     return (
-        <section>
-            <h2>Add a New Post</h2>
+        <section className="flex-col content-center pt-20">
+            <h2 className="flex">Create new post</h2>
                 <input
+                    className="flex"
                     type="text"
                     id="postTitle"
                     name="postTitle"
@@ -38,12 +40,14 @@ const CreatePost = () => {
                     placeholder="Input post title"
                 />
                 <textarea
+                    className="flex"
                     id="postContent"
                     name="postContent"
                     value={description}
                     onChange = {(e) => setDescription(e.target.value)}
                 />
                 <input 
+                    className="flex"
                     type="text"
                     id="postImage"
                     name="postImage"

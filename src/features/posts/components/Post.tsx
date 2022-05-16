@@ -1,9 +1,12 @@
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { likePost } from "./postSlice";
-import { getAuthUser } from "../auth/authenticationSlice";
-import CommentList from "../comment/CommentList";
-import { PostModel } from "../../models";
-import CreateComment from "../comment/CreateComment";
+
+import { useState } from "react";
+import { PostModel } from "../../../models";
+import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
+import { getAuthUser } from "../../auth/authenticationSlice";
+import CreateComment from "../../comment/components/CreateComment";
+import CommentList from "../../comment/components/CommentList";
+import { likePost } from "../postSlice";
+
 
 interface IProps{
   id: number;
@@ -22,6 +25,7 @@ const Post: React.FC<IProps> = (post: IProps) => {
 
   const dispatch = useAppDispatch();
   let user = useAppSelector(getAuthUser);
+  const [show, setShow] = useState(false);
 
   const onLike = () => {
 
@@ -39,7 +43,7 @@ const Post: React.FC<IProps> = (post: IProps) => {
   }
 
   return (
-    <div className="post-component">
+    <div className="flex-column">
       <span>{post.date}</span>
       <img src={post.image} />
       {
@@ -53,8 +57,15 @@ const Post: React.FC<IProps> = (post: IProps) => {
       <div>
         <p><span>{post.authorName}:</span>{post.description.substring(0, 100)}</p>
       </div>
-      <CreateComment postId={post.id} />
-      <CommentList postId={post.id} />
+      {
+        user &&
+        <CreateComment postId={post.id} />
+      }
+      <a onClick={() => setShow(!show)}> Show comments </a>
+      {
+        show && 
+        <CommentList postId={post.id} />
+      }
     </div>
 
   );

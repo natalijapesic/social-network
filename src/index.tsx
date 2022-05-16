@@ -1,15 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { store } from './stores/store';
 import App from './App';
 import './style/main.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './features/header/Header';
-import SignUp from './features/auth/SignUp';
-import SignIn from './features/auth/SignIn';
-import PostsList from './features/posts/PostList';
-import CreatePost from './features/posts/CreatePost';
+import PostsList from './features/posts/components/PostList';
+import CreatePost from './features/posts/components/CreatePost';
+import SignIn from './features/auth/components/SignIn';
+import SignUp from './features/auth/components/SignUp';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

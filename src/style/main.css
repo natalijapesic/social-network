@@ -450,12 +450,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .m-6 {
   margin: 1.5rem;
 }
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
 .mb-6 {
   margin-bottom: 1.5rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
 }
 .mb-3 {
   margin-bottom: 0.75rem;
@@ -466,8 +465,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .block {
   display: block;
 }
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
+}
+.h-8 {
+  height: 2rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -475,11 +480,29 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full {
   width: 100%;
 }
+.w-8 {
+  width: 2rem;
+}
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
 .flex-row {
   flex-direction: row;
 }
+.flex-col {
+  flex-direction: column;
+}
 .flex-wrap {
   flex-wrap: wrap;
+}
+.content-center {
+  align-content: center;
 }
 .items-center {
   align-items: center;
@@ -492,9 +515,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-around {
   justify-content: space-around;
-}
-.self-center {
-  align-self: center;
 }
 .rounded {
   border-radius: 0.25rem;
@@ -529,6 +549,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .bg-clip-padding {
   background-clip: padding-box;
+}
+.fill-gray-600 {
+  fill: #4b5563;
 }
 .px-4 {
   padding-left: 1rem;
@@ -570,6 +593,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
 .text-sky-100 {
   --tw-text-opacity: 1;
   color: rgb(224 242 254 / var(--tw-text-opacity));
@@ -604,25 +631,23 @@ html, body {
     min-width: 100%;
 }
 
-.post-component{
-    display: flex;
-    max-width: 350px;
-    flex-direction: column;
+a {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    padding-left: 1rem/* 16px */;
+    padding-right: 1rem/* 16px */;
 }
 
-.post-list{
-    display: flex;
-    flex-direction: column;
+a:hover{
+    --tw-text-opacity: 1;
+    color: rgb(6 182 212 / var(--tw-text-opacity));
 }
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.hover\:text-cyan-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(6 182 212 / var(--tw-text-opacity));
 }
 
 .focus\:border-blue-600:focus {
@@ -647,4 +672,13 @@ html, body {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.dark .dark\:fill-gray-300 {
+  fill: #d1d5db;
+}
+
+.dark .dark\:text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }

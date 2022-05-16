@@ -9,13 +9,16 @@ html, body {
     min-width: 100%;
 }
 
-.post-component{
-    display: flex;
-    max-width: 350px;
-    flex-direction: column;
+a {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    padding-left: 1rem/* 16px */;
+    padding-right: 1rem/* 16px */;
 }
 
-.post-list{
-    display: flex;
-    flex-direction: column;
+a:hover{
+    --tw-text-opacity: 1;
+    color: rgb(6 182 212 / var(--tw-text-opacity));
 }

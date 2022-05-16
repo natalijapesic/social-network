@@ -1,30 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from '../axiosSetUp';
-import { RootState } from "../../app/store";
+import { RootState } from "../../stores/store";
 import { UserModel } from "../../models";
+import authService from "./api/authService";
+import { AuthState, SignInRequest, SignUpRequest, UserResponse } from "./types";
 
-interface AuthState{
-    
-    user: UserModel | null,
-    status: string,
-    error: string | undefined    
-}
 
-interface SignInRequest{
-    email: string,
-    password: string
-}
-
-interface SignUpRequest{
-    username: string,
-    password: string,
-    email: string,
-}
-
-interface UserResponse{
-    user: UserModel,
-    accessToken: string,
-}
 const initialState: AuthState =
 {
     user: null,
@@ -35,15 +15,14 @@ const initialState: AuthState =
 export const signIn = createAsyncThunk(
     'user/signInUser', 
     async (request: SignInRequest) => {
-    const response = await axios.post<UserResponse>('/login', JSON.stringify(request));
-    return response.data
+    const response = await authService.signIn(request);
+    return response.data;
 });
 
 export const signUp = createAsyncThunk(
     'user/signUpUser', 
     async (request: SignUpRequest) => {
-    let newUser = new UserModel(request.username, request.email, request.password);
-        const response = await axios.post<UserResponse>('/register', JSON.stringify(newUser));
+    const response = await authService.signUp(request)
     return response.data
 });
 

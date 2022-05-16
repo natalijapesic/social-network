@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import storeService from "../storeService";
-import config from './app.config.json'
+import config from '../config/app.config.json'
 
 axios.defaults.baseURL = `${config.server}`;
 axios.defaults.headers.post['Content-Type'] = 'application/json';

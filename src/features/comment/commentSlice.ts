@@ -1,14 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
-import { RootState } from "../../app/store";
+import { RootState } from "../../stores/store";
 import { CommentModel } from "../../models/comment";
+import commentService from "./api/commentService";
+import { CommentState } from "./types";
 
-
-interface CommentState{
-    list: CommentModel[];
-    status: string;
-    error: string | undefined;
-}
 
 const initialState: CommentState =
 {
@@ -20,14 +15,14 @@ const initialState: CommentState =
 export const fetchComments = createAsyncThunk(
     'posts/fetchComments',
     async () => {
-        const response = await axios.get<CommentModel[]>(`/comments`);
+        const response = await commentService.get();
         return response.data
     });
 
 export const addComment = createAsyncThunk(
     'comments/addComment',
     async (newComment: CommentModel) => {
-        const response = await axios.post<CommentModel>('/comments', JSON.stringify(newComment));
+        const response = await commentService.add(newComment);
         return response.data;
     });
 
@@ -51,6 +46,8 @@ const commentSlice = createSlice({
             .addCase(addComment.fulfilled, (state, action: PayloadAction<CommentModel>) => {
                 action.payload.date = new Date().toUTCString();
                 state.list.push(action.payload)
+                state.status = 'succeeded';
+
             })
             .addCase(addComment.pending, (state) => {
                 state.status = 'loading';

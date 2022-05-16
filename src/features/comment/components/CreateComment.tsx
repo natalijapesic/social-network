@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { CommentModel } from "../../models/comment";
-import { getAuthUser } from "../auth/authenticationSlice";
-import { addComment } from "./commentSlice";
+import { CommentModel } from "../../../models/comment";
+import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
+import { getAuthUser } from "../../auth/authenticationSlice";
+import { addComment } from "../commentSlice";
 
 interface IProps{
     postId: number;
@@ -25,9 +25,11 @@ const CreateComment: React.FC<IProps> = (props: IProps) => {
     return (
         <div>
             <textarea
+                className="bg-gray-900"
                 id={props.postId.toString()}
                 name="commentContent"
                 value={description}
+                placeholder="Create comment"
                 onChange={(e) => setDescription(e.target.value)}
             />
             <button value={props.postId} onClick={onComment}>Comment</button>

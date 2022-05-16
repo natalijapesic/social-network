@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "./postSlice";
+import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
+import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "../postSlice";
 import Post from './Post'
 
 
@@ -31,9 +31,9 @@ const PostsList: React.FC = () => {
     }
     
     return (
-        <div className="post-list">
+        <div className="flex-col content-center">
             <select
-                className="bg-gray-900 self-center item-center px-5 ml-20 focus:cyan-500"
+                className="flex bg-gray-900 px-5 ml-20 focus:cyan-500"
                 name="pageLimit"
                 id="pageLimit"
                 onChange={(e) => setLimit(parseInt(e.target.value))}>
@@ -48,7 +48,7 @@ const PostsList: React.FC = () => {
             </div>
             <button
                 onClick={() => setPage((page) => page + 1)}>
-                Next page
+                <a className="flex">Next page</a>
             </button>
         </div>
 

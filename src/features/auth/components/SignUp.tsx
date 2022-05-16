@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../app/hooks";
-import { signUp } from "./authenticationSlice";
+import { useAppDispatch } from "../../../stores/hooks";
+import { signUp } from "../authenticationSlice";
 
 
 const SignUp: React.FC = () => {

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
+import { RootState } from "../../stores/store";
 import { PostModel } from "../../models";
-import axios from '../axiosSetUp'
+import postService from "./api/postService";
 
 interface PostState{
     posts: PostModel[],
@@ -19,7 +19,6 @@ interface PageRequest{
     limit: number;
 }
 
-
 const initialState: PostState =
 {
     posts: [],
@@ -30,21 +29,21 @@ const initialState: PostState =
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (request: PageRequest) => {
-        const response = await axios.get(`/posts?_page=${request.page}&_limit=${request.limit}`)
+        const response = await postService.get(request);
         return response.data;
     });
 
 export const addPost = createAsyncThunk(
     'posts/addPost',
     async (newPost: PostModel) => {
-        const response = await axios.post<PostModel>(`/posts`, JSON.stringify(newPost));
+        const response = await postService.add(newPost);
         return response.data;
     });
 
 export const likePost = createAsyncThunk(
     'posts/likePost',
     async (request: LikeModel) => {
-        const response = await axios.put(`/posts/${request.likedPost.id}`, JSON.stringify(request.likedPost));
+        const response = await postService.like(request);
         return response.data;
     });
 
@@ -70,8 +69,8 @@ const postSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
-                state.status = 'succeeded';
                 state.posts = action.payload;
+                state.status = 'succeeded';
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 console.log(action);
@@ -82,6 +81,7 @@ const postSlice = createSlice({
                 action.payload.date = new Date().toUTCString();
                 action.payload.likes = 0;
                 state.posts.push(action.payload)
+                state.status = 'succeeded';
             })
             .addCase(addPost.rejected, (state, action) => {
                 state.status = 'failed';
@@ -100,6 +100,7 @@ const postSlice = createSlice({
                     postFromState.likes = likedPost.likes
                     postFromState.usersLikes = [...likedPost.usersLikes];
                 }
+                state.status = 'succeeded';
             })
     }
 });

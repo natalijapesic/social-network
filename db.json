@@ -174,6 +174,54 @@
       "authorId": 1,
       "postId": 2,
       "date": "Mon, 16 May 2022 11:59:40 GMT"
+    },
+    {
+      "id": 6,
+      "description": "novi komentar",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 2,
+      "date": "Mon, 16 May 2022 12:45:49 GMT"
+    },
+    {
+      "id": 7,
+      "description": "komment",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 1,
+      "date": "Mon, 16 May 2022 13:02:53 GMT"
+    },
+    {
+      "id": 8,
+      "description": "jos jedan",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 1,
+      "date": "Mon, 16 May 2022 13:09:31 GMT"
+    },
+    {
+      "id": 9,
+      "description": "novi",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 1,
+      "date": "Mon, 16 May 2022 13:28:11 GMT"
+    },
+    {
+      "id": 10,
+      "description": "efree",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 1,
+      "date": "Mon, 16 May 2022 13:46:05 GMT"
+    },
+    {
+      "id": 11,
+      "description": "rfwerfw",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 1,
+      "date": "Mon, 16 May 2022 13:47:31 GMT"
     }
   ],
   "users": [
