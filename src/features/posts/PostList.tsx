@@ -18,7 +18,7 @@ const PostsList: React.FC = () => {
         if (postStatus === 'idle' || postStatus === 'succeeded') {
             dispatch(fetchPosts({ page, limit }));
         }
-    }, [page, limit])
+    }, [page, limit, dispatch])
 
 
     let content;
@@ -31,9 +31,9 @@ const PostsList: React.FC = () => {
     }
     
     return (
-        <div>
+        <div className="post-list">
             <select
-                className="bg-gray-900 focus:cyan-500"
+                className="bg-gray-900 self-center item-center px-5 ml-20 focus:cyan-500"
                 name="pageLimit"
                 id="pageLimit"
                 onChange={(e) => setLimit(parseInt(e.target.value))}>
@@ -43,11 +43,13 @@ const PostsList: React.FC = () => {
                 <option value="15">15</option>
 
             </select>
-            <div className="flex-wrap ">
+            <div className="flex flex-wrap justify-around">
                 {content}
             </div>
             <button
-                onClick={() => setPage((page) => page + 1)}>Next page</button>
+                onClick={() => setPage((page) => page + 1)}>
+                Next page
+            </button>
         </div>
 
     );

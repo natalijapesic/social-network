@@ -39,7 +39,7 @@ const Post: React.FC<IProps> = (post: IProps) => {
   }
 
   return (
-    <div className="flex-column">
+    <div className="post-component">
       <span>{post.date}</span>
       <img src={post.image} />
       {

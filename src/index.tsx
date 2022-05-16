@@ -24,9 +24,9 @@ root.render(
           <Route path="/" element={<Header />}>      
             <Route index element={<PostsList />} /> 
           </Route>
-          <Route path="createPost" element={<CreatePost />} />
-          <Route path="signIn" element={<SignIn/>} />
-          <Route path="signUp" element={<SignUp/>} />
+            <Route path="createPost" element={<CreatePost />} />
+            <Route path="signIn" element={<SignIn/>} />
+            <Route path="signUp" element={<SignUp/>} />
         </Route>
       </Routes>
       </BrowserRouter>

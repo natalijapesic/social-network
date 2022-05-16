@@ -18,7 +18,9 @@ class StoreService{
     getUser():UserModel | null{
         const dataFromStorage = localStorage.getItem("user");
         if(dataFromStorage)
+        {
             return JSON.parse(dataFromStorage);
+        }
         else 
             return null;
     }

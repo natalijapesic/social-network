@@ -30,7 +30,7 @@ const initialState: PostState =
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (request: PageRequest) => {
-        const response = await axios.get(`/posts?_page=${request.page}&_limit=${request.limit}`);
+        const response = await axios.get(`/posts?_page=${request.page}&_limit=${request.limit}`)
         return response.data;
     });
 
@@ -74,6 +74,7 @@ const postSlice = createSlice({
                 state.posts = action.payload;
             })
             .addCase(fetchPosts.rejected, (state, action) => {
+                console.log(action);
                 state.status = 'failed';
                 state.error = action.error.message;
             })

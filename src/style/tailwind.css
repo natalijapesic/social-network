@@ -1,9 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+  
 
-header{
-    display: flex;
-    justify-content: space-between;
+
+html, body {
+    min-height: 100%;
+    min-width: 100%;
 }
 
+.post-component{
+    display: flex;
+    max-width: 350px;
+    flex-direction: column;
+}
+
+.post-list{
+    display: flex;
+    flex-direction: column;
+}

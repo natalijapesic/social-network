@@ -11,27 +11,28 @@ axios.interceptors.request.use(
     let token = storeService.getAccessToken();
     if (token) {
       config.headers!['Authorization'] = `Bearer ${token}`;
-      return config;
     }
+    return config;
   },
   error => {
     return Promise.reject(error);
   }
 );
 
-axios.interceptors.response.use(
-  (response: AxiosRequestConfig) => {
-    return response;
-  },
-  async (error: AxiosError) => {
-    if (error.response) {
-      if (error.response.status === 401) {
-        error.config.headers!['Authorization'] = `Bearer ${storeService.getAccessToken()}`;
-        return error.config
-      }
-    }
-    return Promise.reject(error);
-  }
-);
+
+// axios.interceptors.response.use(
+//   (response: AxiosRequestConfig) => {
+//     return response;
+//   },
+//   async (error: AxiosError) => {
+//     if (error.response) {
+//       if (error.response.status === 401) {
+//         error.config.headers!['Authorization'] = `Bearer ${storeService.getAccessToken()}`;
+//         return error.config
+//       }
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 export default axios;

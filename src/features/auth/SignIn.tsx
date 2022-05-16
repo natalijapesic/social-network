@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { getAuthUser, signIn } from "./authenticationSlice";
+import { useAppDispatch } from "../../app/hooks";
+import { signIn } from "./authenticationSlice";
 
 
 const SignIn: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
-    const user = useAppSelector(getAuthUser);
-    // const status = useAppSelector(getAuthStatus);
-    // const error = useAppSelector(getAuthError);
-    
+
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     let navigate = useNavigate();
@@ -29,18 +26,8 @@ const SignIn: React.FC = () => {
         navigate("/");
    }
 
-//    let content;
-
-//     if (status === 'loading') {
-//         content = <p>"Loading..."</p>;
-//     } else if (status === 'failed') {
-//         content = <p>{error}</p>;
-//     } else if (status === 'succeeded') {
-//         content = "router /profile";
-//     }
-
 return (
-    <div className="flex justify-center text-center mt-20">
+    <div className="flex justify-center text-center pt-20">
 
         <form onSubmit={onSubmit}>
             <div className="mb-6">

@@ -6,7 +6,7 @@ import { getAuthUser } from "../auth/authenticationSlice";
 import { addPost } from "./postSlice";
 
 
-const createPost = () => {
+const CreatePost = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -55,4 +55,4 @@ const createPost = () => {
         </section>
     );
 }
-export default createPost
+export default CreatePost
