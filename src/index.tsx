@@ -5,7 +5,7 @@ import { store } from './stores/store';
 import App from './App';
 import './style/main.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './features/header/Header';
+import Header from './components/Header';
 import PostsList from './features/posts/components/PostList';
 import CreatePost from './features/posts/components/CreatePost';
 import SignIn from './features/auth/components/SignIn';

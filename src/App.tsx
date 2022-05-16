@@ -16,7 +16,7 @@ function App() {
       dispatch(refreshUserStore(user));
     }
 
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="dark min-w-screen min-h-screen bg-gray-900 text-gray-300">

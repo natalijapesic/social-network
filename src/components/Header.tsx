@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-import { useAppSelector } from "../../stores/hooks";
-import { getAuthUser, signOut } from "../auth/authenticationSlice";
+import { useAppSelector } from "../stores/hooks";
+import { getAuthUser, signOut } from "../features/auth/authenticationSlice";
 
 
 const Header: React.FC = () => {
