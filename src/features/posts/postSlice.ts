@@ -2,22 +2,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../stores/store";
 import { PostModel } from "../../models";
 import postService from "./api/postService";
+import { LikeModel, PageRequest, PostState } from "./types";
 
-interface PostState{
-    posts: PostModel[],
-    status: string,
-    error: string | undefined
-}
-
-interface LikeModel{
-    likedPost: PostModel,
-    userId: number
-}
-
-interface PageRequest{
-    page: number;
-    limit: number;
-}
 
 const initialState: PostState =
 {

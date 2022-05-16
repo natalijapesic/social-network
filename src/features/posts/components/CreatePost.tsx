@@ -59,4 +59,4 @@ const CreatePost = () => {
         </section>
     );
 }
-export default CreatePost
+export default CreatePost;
