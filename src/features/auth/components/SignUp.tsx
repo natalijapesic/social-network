@@ -25,17 +25,25 @@ const SignUp: React.FC = () => {
 
     useEffect(() => {
         validate();
-    }, [email, username])
+    }, [email, username, password])
 
-    function validate(){
-        if ((email.length === 0
-            && username.length === 0)
-            || email.indexOf("@") === -1
-            || (email.indexOf(".com") === -1 && email.indexOf(".rs") === -1)
-            )
+    function validate() {
+        if (password.length < 5) {
             setIsDisabled(true);
-        else
+            return;
+        } else {
             setIsDisabled(false);
+        }
+        if (email.length === 0 || username.length === 0)
+        {
+            setIsDisabled(true);
+            return;
+        }
+        if (email.indexOf("@") === -1 || (email.indexOf(".com") === -1 && email.indexOf(".rs") === -1))
+        {
+            setIsDisabled(true);
+            return;
+        }
     }
 
 
