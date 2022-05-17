@@ -9,7 +9,7 @@ const initialState: AuthState =
 {
     user: null,
     status: 'idle',
-    error: undefined
+    error: undefined,
 }
 
 export const signIn = createAsyncThunk(
@@ -50,6 +50,20 @@ const userSlice = createSlice({
             action.payload.user.isAdmin = false;
             state.user = action.payload.user;
         })
+        .addCase(signUp.rejected, (state, action) =>{
+            state.status = 'failed';
+            state.error = action.error.message;
+        })
+        .addCase(signUp.pending, (state) =>{
+            state.status = 'loading';
+        })
+        .addCase(signIn.pending, (state) =>{
+            state.status = 'loading';
+        })
+        .addCase(signIn.rejected, (state, action) =>{
+            state.status = 'failed';
+            state.error = action.error.message;
+        })
     }
 })
 
@@ -57,6 +71,6 @@ export const { signOut, refreshUserStore } = userSlice.actions;
 
 export const getAuthUser = (state: RootState) => state.auth.user;
 export const getAuthStatus = (state: RootState) => state.auth.status;
-export const getAuthError = (state: RootState) => state.auth.error;
 
 export default userSlice.reducer;
+

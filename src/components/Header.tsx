@@ -18,13 +18,13 @@ const Header: React.FC = () => {
 
     return (
         <div>
-            <header className="flex justify-between">
+            <header className="flex justify-between bg-gray-800">
                 <div></div>
                 <div>
                     <input 
                         type="text" 
                         placeholder="Input username" 
-                        className="border-b-2 text-sky-100 mb-3 leading-tight focus:border-transparent bg-gray-900">
+                        className="border-b-2 text-sky-100 my-3 leading-tight focus:border-transparent bg-gray-800">
                     </input>
                 </div>
 

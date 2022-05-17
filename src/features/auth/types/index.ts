@@ -4,7 +4,7 @@ export type AuthState = {
     
     user: UserModel | null;
     status: string;
-    error: string | undefined; 
+    error: string | undefined;
 };
 
 export type SignUpRequest = {

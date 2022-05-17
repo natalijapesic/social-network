@@ -33,7 +33,7 @@ const PostsList: React.FC = () => {
     return (
         <div className="flex-col content-center">
             <select
-                className="flex bg-gray-900 px-5 ml-20 focus:cyan-500"
+                className="flex bg-gray-800 px-5 ml-20 focus:cyan-500"
                 name="pageLimit"
                 id="pageLimit"
                 onChange={(e) => setLimit(parseInt(e.target.value))}>

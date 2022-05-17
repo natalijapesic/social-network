@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "new post",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/500",
       "description": "fgdgd",
       "authorName": "test",
       "date": "Fri, 13 May 2022 11:56:02 GMT",
@@ -15,12 +15,14 @@
     {
       "id": 2,
       "title": "new post3",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/400",
       "description": "fefwefe",
       "authorName": "test",
       "date": "Fri, 13 May 2022 13:08:42 GMT",
-      "likes": 0,
-      "usersLikes": [],
+      "likes": 1,
+      "usersLikes": [
+        1
+      ],
       "userId": 1
     },
     {
@@ -59,7 +61,7 @@
     {
       "id": 6,
       "title": "post6",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/400",
       "description": "dovn",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:17:32 GMT",
@@ -70,7 +72,7 @@
     {
       "id": 7,
       "title": "post6",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/400",
       "description": "sdljkfndsjn",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:18:22 GMT",
@@ -81,7 +83,7 @@
     {
       "id": 8,
       "title": "postg7",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/500",
       "description": "odcdsj",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:19:45 GMT",
@@ -92,7 +94,7 @@
     {
       "id": 9,
       "title": "post9",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/500",
       "description": "kdscjn",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:19:57 GMT",
@@ -125,10 +127,21 @@
     {
       "id": 12,
       "title": "post12",
-      "image": "https://place-hold.it/300",
+      "image": "https://place-hold.it/500",
       "description": "dsljnvc",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:20:26 GMT",
+      "likes": 0,
+      "usersLikes": [],
+      "userId": 1
+    },
+    {
+      "id": 13,
+      "title": "asd",
+      "image": "https://place-hold.it/300x500",
+      "description": "zzz",
+      "authorName": "test",
+      "date": "Tue, 17 May 2022 11:18:02 GMT",
       "likes": 0,
       "usersLikes": [],
       "userId": 1
@@ -222,6 +235,14 @@
       "authorId": 1,
       "postId": 1,
       "date": "Mon, 16 May 2022 13:47:31 GMT"
+    },
+    {
+      "id": 12,
+      "description": "",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 7,
+      "date": "Tue, 17 May 2022 11:16:57 GMT"
     }
   ],
   "users": [
@@ -237,6 +258,13 @@
       "password": "$2a$10$KgE5v7a7e0jxIndNCPspAeEslISZXnhJH8.r7Mx3xOFoRB5O0TK9O",
       "id": 2,
       "username": "ivana",
+      "isAdmin": false
+    },
+    {
+      "email": "username@gmail.com",
+      "password": "$2a$10$piX8/BhK1ak0bSlVo6Z1Vu.zGmojvRqnq7yUNuGv5UIJo/T.1pGcq",
+      "id": 3,
+      "username": "username",
       "isAdmin": false
     }
   ]

@@ -1,11 +1,12 @@
-
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { PostModel } from "../../../models";
 import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
 import { getAuthUser } from "../../auth/authenticationSlice";
 import CreateComment from "../../comment/components/CreateComment";
-import CommentList from "../../comment/components/CommentList";
 import { likePost } from "../postSlice";
+import Button from "../../../components/Button";
+import Spinner from "../../../components/Spinner";
+import CommentList from "../../comment/components/CommentList";
 
 
 interface IProps{
@@ -42,32 +43,42 @@ const Post: React.FC<IProps> = (post: IProps) => {
     } 
   }
 
-  return (
-    <div className="flex-column">
-      <span>{post.date}</span>
-      <img src={post.image} />
-      {
-        user &&
-        <button
-          value={post.id}
-          onClick={onLike}>
-          Like
-        </button>
-      }
-      <div>
-        <p><span>{post.authorName}:</span>{post.description.substring(0, 100)}</p>
-      </div>
-      {
-        user &&
-        <CreateComment postId={post.id} />
-      }
-      <a onClick={() => setShow(!show)}> Show comments </a>
-      {
-        show && 
-        <CommentList postId={post.id} />
-      }
-    </div>
+  const onClick = () =>{
+    setShow(!show);
 
+  }
+
+  return(
+    <div className="flex-col  bg-gray-800 my-5">
+      <div className="flex-col m-5" onClick={onClick}>
+        <img src={post.image} />
+        <p className="text-2xl text-white font-mono">{post.title}</p>
+        <p className="text-sm text-slate-200 font-mono">{post.date}</p>
+      </div>
+        <div className="flex-col content-center">
+          <>
+          {show ? (
+                <>
+                {
+                  user &&
+                  <Button value={post.id} onClick={onLike} type="button" buttonStyle="dark" message="Like"/>
+                }
+                <p> 
+                  <span className="text-lg text-white font mono mr-5">{post.authorName}:</span> 
+                  <span className="text-base text-slate-400 font mono">{post.description.substring(0, 100)}</span>
+                </p>
+                {
+                  user &&
+                  <CreateComment postId={post.id} />
+                }
+                <Suspense fallback={<Spinner type="gray"/>}>
+                  <CommentList postId={post.id}/>
+                </Suspense>
+                </>
+          ): null}
+          </>
+        </div>
+    </div>
   );
 }
 
