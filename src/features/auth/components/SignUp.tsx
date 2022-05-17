@@ -17,43 +17,32 @@ const SignUp: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [isEmailGood, setIsEmailGood] = useState<boolean | null>(null);
-    const [isNameGood, setIsNameGood] = useState<boolean | null>(null);
+    const [isDisabled, setIsDisabled] = useState(true);
 
     // https://www.bezkoder.com/react-form-validation-hooks/
-    
-    function checkEmail(){
-        if (email.indexOf("@") === -1 || (email.indexOf(".com") === -1 && email.indexOf(".rs") === -1))
-            setIsEmailGood(false);
-        else
-            setIsEmailGood(true);
-    }
 
-    function checkName(){
-        if (username.length === 0)
-            setIsNameGood(false);
-        else
-            setIsNameGood(true);
-    }
     let content;
 
     useEffect(() => {
-        checkEmail();
-        checkName();
+        validate();
+    }, [email, username])
 
-        if(signUpStatus === "succeeded")
-            navigate("/");
-        else if(signUpStatus === "failed")
-            content = <label>User already exist</label>;
-        else if(signUpStatus === "loading")
-            content = <Spinner type="gray" />
+    function validate(){
+        if ((email.length === 0
+            && username.length === 0)
+            || email.indexOf("@") === -1
+            || (email.indexOf(".com") === -1 && email.indexOf(".rs") === -1)
+            )
+            setIsDisabled(true);
+        else
+            setIsDisabled(false);
+    }
 
-    },[isEmailGood, isNameGood])
 
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
-    const onClick = () => {
-
-        if(isNameGood && isEmailGood && signUpStatus === "idle")
+        if(signUpStatus === "idle" || signUpStatus === "failed")
         {
             const request = {
                 username,
@@ -65,32 +54,34 @@ const SignUp: React.FC = () => {
         }
     }
 
+    if (signUpStatus === "succeeded")
+        navigate("/");
+    else if (signUpStatus === "failed") {
+        console.log(signUpStatus);
+        content = <p className="border border-red-300">User already exist or your password is too short.<br /> Please check your input and try again.</p>;
+    }
+    else if (signUpStatus === "loading")
+        content = <Spinner type="gray" />;
 
 
     return (
-    <div className="flex justify-center text-center pt-20">
-
-        <div>
-            <Input inputStyle="rounded" value={username} type="text" placeholder="Username" onChange={setUsername}></Input>
-            {
-                isNameGood === false?
-                <label>Username</label>
-                : null
-            }
-            <Input inputStyle="rounded" value={email} type="text" placeholder="Email" onChange={setEmail}></Input>
-            {
-                isEmailGood === false ?
-                <label>Email must contain @ and .com or .rs</label>
-                : null
-            }
-            <Input inputStyle="rounded" value={password} type="password" placeholder="Password" onChange={setPassword}></Input>
-            {content}
-        <div>
-            <Button type="button" buttonStyle="light" message="SignUp" onClick={onClick}/>
-        </div>
+        <div className="flex justify-center text-center pt-20">
+            <form onSubmit={onSubmit}>
+                <Input inputStyle="rounded" value={username} type="text" placeholder="Username" onChange={setUsername}></Input>
+                <Input inputStyle="rounded" value={email} type="text" placeholder="Email" onChange={setEmail}></Input>
+                <Input inputStyle="rounded" value={password} type="password" placeholder="Password" onChange={setPassword}></Input>
+                {content}
+                <div>
+                    {
+                        isDisabled 
+                        ? <Button type="submit" buttonStyle="disable" message="SignUp" disabled={isDisabled} />
+                        : <Button type="submit" buttonStyle="light" message="SignUp" disabled={isDisabled} />
+                    }
+                    
+                </div>
             
-        </div>
-    </div>);
+            </form>
+        </div>);
 }
 
 export default SignUp;

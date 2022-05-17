@@ -61,7 +61,7 @@ const Post: React.FC<IProps> = (post: IProps) => {
                 <>
                 {
                   user &&
-                  <Button value={post.id} onClick={onLike} type="button" buttonStyle="dark" message="Like"/>
+                  <Button value={post.id} onClick={onLike} type="button" buttonStyle="dark" message="Like" disabled={false}/>
                 }
                 <p> 
                   <span className="text-lg text-white font mono mr-5">{post.authorName}:</span> 

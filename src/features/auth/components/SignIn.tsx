@@ -37,7 +37,7 @@ return (
             <Input inputStyle="rounded" value={password} type="password" placeholder="Password" onChange={setPassword}></Input>
             
             <div>
-                <Button type="submit" buttonStyle="light" message="SignIn" />
+                <Button type="submit" buttonStyle="light" message="SignIn" disabled={false}/>
             </div>
             
         </form>

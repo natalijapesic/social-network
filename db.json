@@ -266,6 +266,20 @@
       "id": 3,
       "username": "username",
       "isAdmin": false
+    },
+    {
+      "email": "natalija@gmail.com",
+      "password": "$2a$10$uXBR.we2kmppuVBYR/cL7OVqcQVK6jkiMxAdc2s4hpsnWteZAGKfS",
+      "id": 4,
+      "username": "natalija",
+      "isAdmin": false
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "$2a$10$GFjjlowYmeJciMFyyJpevub/amqrw1DXa91LphxrKmHO8uWgBkQiK",
+      "id": 5,
+      "username": "test1",
+      "isAdmin": false
     }
   ]
 }
