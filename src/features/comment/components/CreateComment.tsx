@@ -23,7 +23,7 @@ const CreateComment: React.FC<IProps> = (props: IProps) => {
     };
 
     return (
-        <div>
+        <div className="flex">
             <textarea
                 className="bg-gray-900"
                 id={props.postId.toString()}

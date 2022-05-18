@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './stores/store';
@@ -10,11 +10,13 @@ import CreatePost from './features/posts/components/CreatePost';
 import SignIn from './features/auth/components/SignIn';
 import SignUp from './features/auth/components/SignUp';
 import PostsGlimmer from './components/PostsGlimmer';
-import PostsList from './features/posts/components/PostList';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 // ReactDOM.createRoot API we will unlock concurrency 
+
+const PostList = lazy(() => import('./features/posts/components/PostList')); 
+
 
 
 root.render(
@@ -24,11 +26,13 @@ root.render(
       <Routes>
         <Route path="/" element={<App/>}>
           <Route path="/" element={<Header />}>     
-          <Route index element={<PostsList />} /> 
-            {/* <Suspense fallback={<PostListGlimmer />}>
-              
-            </Suspense>  */}
 
+            <Route index 
+              element={ 
+                <Suspense fallback={<PostsGlimmer />}>
+                <PostList /></Suspense>} 
+            /> 
+    
           </Route>
             <Route path="createPost" element={<CreatePost />} />
             <Route path="signIn" element={<SignIn/>} />

@@ -1,31 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "new post",
-      "image": "https://place-hold.it/500",
-      "description": "fgdgd",
-      "authorName": "test",
-      "date": "Fri, 13 May 2022 11:56:02 GMT",
-      "likes": 1,
-      "usersLikes": [
-        1
-      ]
-    },
-    {
-      "id": 2,
-      "title": "new post3",
-      "image": "https://place-hold.it/400",
-      "description": "fefwefe",
-      "authorName": "test",
-      "date": "Fri, 13 May 2022 13:08:42 GMT",
-      "likes": 1,
-      "usersLikes": [
-        1
-      ],
-      "userId": 1
-    },
-    {
       "id": 3,
       "title": "post3",
       "image": "https://place-hold.it/300",
@@ -149,92 +124,12 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "description": "novi komentar",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 1,
-      "date": "Sun, 15 May 2022 11:50:30 GMT"
-    },
-    {
-      "id": 2,
-      "description": "novi komentar",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 2,
-      "date": "Sun, 15 May 2022 11:50:30 GMT"
-    },
-    {
-      "id": 3,
-      "description": "novi komentar",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 2,
-      "date": "Sun, 15 May 2022 11:50:30 GMT"
-    },
-    {
       "id": 4,
       "description": "ovde nisam dodala",
       "authorName": "test",
       "authorId": 1,
       "postId": 5,
       "date": "Sun, 15 May 2022 12:12:28 GMT"
-    },
-    {
-      "id": 5,
-      "description": "vidi se",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 2,
-      "date": "Mon, 16 May 2022 11:59:40 GMT"
-    },
-    {
-      "id": 6,
-      "description": "novi komentar",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 2,
-      "date": "Mon, 16 May 2022 12:45:49 GMT"
-    },
-    {
-      "id": 7,
-      "description": "komment",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 1,
-      "date": "Mon, 16 May 2022 13:02:53 GMT"
-    },
-    {
-      "id": 8,
-      "description": "jos jedan",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 1,
-      "date": "Mon, 16 May 2022 13:09:31 GMT"
-    },
-    {
-      "id": 9,
-      "description": "novi",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 1,
-      "date": "Mon, 16 May 2022 13:28:11 GMT"
-    },
-    {
-      "id": 10,
-      "description": "efree",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 1,
-      "date": "Mon, 16 May 2022 13:46:05 GMT"
-    },
-    {
-      "id": 11,
-      "description": "rfwerfw",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 1,
-      "date": "Mon, 16 May 2022 13:47:31 GMT"
     },
     {
       "id": 12,
@@ -251,7 +146,7 @@
       "password": "$2a$10$ukROAFvvmH7vmmV6rSiVTeDziBsyHNje88f.PaoqK81vPlrWjLEPa",
       "id": 1,
       "username": "test",
-      "isAdmin": false
+      "isAdmin": true
     },
     {
       "email": "ivana@gmail.com",

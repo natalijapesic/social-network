@@ -1,16 +1,7 @@
 import axios from '../../../lib/axiosSetUp';
 import { PostModel } from '../../../models';
+import { LikeModel, PageRequest } from '../types';
 
-
-interface PageRequest{
-    page: number;
-    limit: number;
-}
-
-interface LikeModel{
-    likedPost: PostModel,
-    userId: number
-}
 
 class PostService{
 
@@ -26,6 +17,11 @@ class PostService{
 
     async like(request: LikeModel){
         const response = await axios.put(`/posts/${request.likedPost.id}`, JSON.stringify(request.likedPost));
+        return response;
+    }
+
+    async delete(postId: number){
+        const response = await axios.delete(`/posts/${postId}`);
         return response;
     }
 

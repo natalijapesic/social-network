@@ -36,13 +36,13 @@ const userSlice = createSlice({
         },
         refreshUserStore: (state, action: PayloadAction<UserModel>) => {
             state.user = action.payload;
+            console.log(action.payload);
         }
     },
     extraReducers(builder){
         builder
         .addCase(signIn.fulfilled, (state, action: PayloadAction<UserResponse>) =>{
             state.status = "succeeded";
-            action.payload.user.isAdmin = false;
             state.user = action.payload.user;
         })
         .addCase(signUp.fulfilled, (state, action: PayloadAction<UserResponse>) =>{

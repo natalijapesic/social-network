@@ -32,6 +32,8 @@ const CommentList: React.FC<IProps> = (props: IProps) => {
                           .map((comment, index) => <Comment key={index} {...comment} />)
     } else if (commentsStatus === 'failed') {
         content = <p>{error}</p>;
+    } else if (commentsStatus === 'loading') {
+        content = <Spinner type="gray" />
     }
     
     return (

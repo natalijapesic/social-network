@@ -25,7 +25,7 @@ const SignIn: React.FC = () => {
     
 
     function validate() {
-        if (password.length < 5) {
+        if (password.length < 4) {
             setIsDisabled(true);
             return;
         } else {

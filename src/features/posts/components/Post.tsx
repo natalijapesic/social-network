@@ -1,11 +1,10 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { PostModel } from "../../../models";
 import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
 import { getAuthUser } from "../../auth/authenticationSlice";
 import CreateComment from "../../comment/components/CreateComment";
-import { likePost } from "../postSlice";
+import { deletePost, likePost } from "../postSlice";
 import Button from "../../../components/Button";
-import Spinner from "../../../components/Spinner";
 import CommentList from "../../comment/components/CommentList";
 
 
@@ -43,36 +42,39 @@ const Post: React.FC<IProps> = (post: IProps) => {
     } 
   }
 
-  const onClick = () =>{
-    setShow(!show);
+  const onDelete = () =>{
+    if(window.confirm("Are you sure you want to delete this post?"))
+      dispatch(deletePost(post.id));
   }
 
   return(
     <div className="flex-col  bg-gray-800 my-5">
-      <div className="flex-col m-5" onClick={onClick}>
+      {
+        user && user.isAdmin &&
+        <Button value={post.id} onClick={onDelete} type="button" buttonStyle="redRound" message="X" disabled={false} />
+      }
+      <div className="flex-col m-5" onClick={() => setShow(!show)}>
         <img src={post.image} />
         <p className="text-2xl text-white font-mono">{post.title}</p>
         <p className="text-sm text-slate-200 font-mono">{post.date}</p>
       </div>
-        <div className="flex-col content-center">
+        <div className="flex-col ml-7 content-center">
           <>
           {show ? (
                 <>
-                {
-                  user &&
-                  <Button value={post.id} onClick={onLike} type="button" buttonStyle="dark" message="Like" disabled={false}/>
-                }
-                <p> 
-                  <span className="text-lg text-white font mono mr-5">{post.authorName}:</span> 
-                  <span className="text-base text-slate-400 font mono">{post.description.substring(0, 100)}</span>
-                </p>
-                {
-                  user &&
-                  <CreateComment postId={post.id} />
-                }
-                <Suspense fallback={<Spinner type="gray"/>}>
+                  {
+                    user &&
+                    <Button value={post.id} onClick={onLike} type="button" buttonStyle="dark" message="Like" disabled={false}/>
+                  }
+                  <p> 
+                    <span className="text-lg text-white font mono mr-5">{post.authorName}:</span> 
+                    <span className="text-base text-slate-400 font mono">{post.description.substring(0, 100)}</span>
+                  </p>
+                  {
+                    user &&
+                    <CreateComment postId={post.id} />
+                  }
                   <CommentList postId={post.id}/>
-                </Suspense>
                 </>
           ): null}
           </>
@@ -82,3 +84,4 @@ const Post: React.FC<IProps> = (post: IProps) => {
 }
 
 export default Post;
+

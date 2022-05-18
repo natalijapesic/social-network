@@ -25,8 +25,8 @@ const SignUp: React.FC = () => {
         validate();
     }, [email, username, password])
 
-    function validate() {
-        if (password.length < 5) {
+    const validate = () => {
+        if (password.length < 4) {
             setIsDisabled(true);
             return;
         } else {
@@ -43,7 +43,6 @@ const SignUp: React.FC = () => {
             return;
         }
     }
-
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -65,7 +64,7 @@ const SignUp: React.FC = () => {
         navigate("/");
     else if (signUpStatus === "failed") {
         console.log(signUpStatus);
-        content = <p className="border border-red-300">User already exist or your password is too short.<br /> Please check your input and try again.</p>;
+        content = <p className="border border-red-300">User already exist.<br /> Please check your input and try again.</p>;
     }
     else if (signUpStatus === "loading")
         content = <Spinner type="gray" />;

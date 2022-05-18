@@ -33,6 +33,13 @@ export const likePost = createAsyncThunk(
         return response.data;
     });
 
+export const deletePost = createAsyncThunk(
+    'posts/deletePost',
+    async (postId: number) => {
+        const response = await postService.delete(postId);
+        console.log(response);
+        return postId;
+    });
 
 const postSlice = createSlice({
     name: 'posts',
@@ -74,6 +81,25 @@ const postSlice = createSlice({
                 state.error = action.error.message;
             })
             .addCase(addPost.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(deletePost.fulfilled, (state, action: PayloadAction<number>) => {
+                const post = state.posts.find(el => el.id == action.payload);
+                if(post)
+                {
+                    const index = state.posts.indexOf(post);
+                    if (index > -1) 
+                        state.posts.splice(index, 1);
+
+                }
+
+                state.status = 'succeeded';
+            })
+            .addCase(deletePost.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            })
+            .addCase(deletePost.pending, (state) => {
                 state.status = 'loading';
             })
             .addCase(likePost.fulfilled, (state, action: PayloadAction<PostModel>) => {
