@@ -6,17 +6,19 @@ import App from './App';
 import './style/main.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import CreatePost from './features/posts/components/CreatePost';
 import SignIn from './features/auth/components/SignIn';
 import SignUp from './features/auth/components/SignUp';
 import PostsGlimmer from './components/PostsGlimmer';
-import Posts from './features/posts/components/Posts';
+import UserProtected from './components/UserProtected';
+import AdminProtected from './components/Admin';
+import Spinner from './components/Spinner';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 // ReactDOM.createRoot API we will unlock concurrency 
 
-const PostList = lazy(() => import('./features/posts/components/Posts')); 
+const Posts = lazy(() => import('./features/posts/components/Posts')); 
+const CreatePost = lazy(() => import('./features/posts/components/CreatePost'));
 
 
 
@@ -27,17 +29,25 @@ root.render(
       <Routes>
         <Route path="/" element={<App/>}>
           <Route path="/" element={<Header />}>     
-
             <Route index
               element={ 
                 <Suspense fallback={<PostsGlimmer />}>
                 <Posts/></Suspense>} 
             /> 
-    
-          </Route>
-            <Route path="createPost" element={<CreatePost />} />
+            </Route>
+            <Route path="createPost" element={
+              <UserProtected>
+                <Suspense fallback={<Spinner type='gray' />}>
+                  <CreatePost />
+                </Suspense>
+              </UserProtected>
+            } />
+            <Route path="signUp" element={
+              <AdminProtected>
+                <SignUp />
+              </AdminProtected>
+            } />
             <Route path="signIn" element={<SignIn/>} />
-            <Route path="signUp" element={<SignUp/>} />
         </Route>
       </Routes>
       </BrowserRouter>
