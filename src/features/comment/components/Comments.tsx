@@ -8,7 +8,7 @@ interface IProps{
     postId: number;
 }
 
-const CommentList: React.FC<IProps> = (props: IProps) => {
+const Comments: React.FC<IProps> = (props: IProps) => {
     const dispatch = useAppDispatch();
 
     const comments = useAppSelector(selectAllComments);
@@ -42,5 +42,5 @@ const CommentList: React.FC<IProps> = (props: IProps) => {
         </section>
     )
 }
-export default CommentList;
+export default Comments;
 

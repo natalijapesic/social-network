@@ -27,12 +27,11 @@ const Posts: React.FC = () => {
 
 
     const nextPage = () =>{
-        console.log(disableNext);
-        if(posts.length > 0){
+        if (posts.length < limit) {
+            setDisableNext(true);
+        }else{
             setDisablePrev(false);
             setPage(page + 1);
-        }else{
-            setDisableNext(true);
         }
     }
 
@@ -72,7 +71,6 @@ const Posts: React.FC = () => {
 
                 </select>
             </div>
-
 
             <div className="flex flex-wrap justify-around">
                 {content}

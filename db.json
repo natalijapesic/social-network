@@ -7,8 +7,10 @@
       "description": "ojdncwjn",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:13:59 GMT",
-      "likes": 0,
-      "usersLikes": [],
+      "likes": 1,
+      "usersLikes": [
+        4
+      ],
       "userId": 1
     },
     {
@@ -18,8 +20,10 @@
       "description": "djnsjkdn",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:15:30 GMT",
-      "likes": 0,
-      "usersLikes": [],
+      "likes": 1,
+      "usersLikes": [
+        4
+      ],
       "userId": 1
     },
     {
@@ -29,17 +33,6 @@
       "description": "dsovjndjn",
       "authorName": "test",
       "date": "Sat, 14 May 2022 13:16:15 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 6,
-      "title": "post6",
-      "image": "https://place-hold.it/400",
-      "description": "dovn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:17:32 GMT",
       "likes": 0,
       "usersLikes": [],
       "userId": 1
@@ -149,6 +142,22 @@
       "authorId": 1,
       "postId": 7,
       "date": "Tue, 17 May 2022 11:16:57 GMT"
+    },
+    {
+      "id": 13,
+      "description": "jos jedan komentarcic",
+      "authorName": "natalija",
+      "authorId": 4,
+      "postId": 3,
+      "date": "Wed, 18 May 2022 19:26:59 GMT"
+    },
+    {
+      "id": 14,
+      "description": "i jos samo jedan\n",
+      "authorName": "natalija",
+      "authorId": 4,
+      "postId": 4,
+      "date": "Wed, 18 May 2022 19:27:21 GMT"
     }
   ],
   "users": [

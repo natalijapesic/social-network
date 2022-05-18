@@ -5,7 +5,7 @@ import { getAuthUser } from "../../auth/authenticationSlice";
 import CreateComment from "../../comment/components/CreateComment";
 import { deletePost, likePost } from "../postSlice";
 import Button from "../../../components/Button";
-import CommentList from "../../comment/components/CommentList";
+import CommentList from "../../comment/components/Comments";
 
 
 interface IProps{

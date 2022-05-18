@@ -3,6 +3,7 @@ import { RootState } from "../../stores/store";
 import { UserModel } from "../../models";
 import authService from "./api/authService";
 import { AuthState, SignInRequest, SignUpRequest, UserResponse } from "./types";
+import storeService from "../../storeService";
 
 
 const initialState: AuthState =
@@ -31,8 +32,11 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        signOut:(state) => {
+        signOut: (state) => {
+            storeService.signOut();
+            state.status = "idle";
             state.user = null;
+            state.error = undefined;
         },
         refreshUserStore: (state, action: PayloadAction<UserModel>) => {
             state.user = action.payload;

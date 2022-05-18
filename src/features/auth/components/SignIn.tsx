@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactFragment, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
@@ -10,40 +10,47 @@ import { getAuthStatus, signIn } from "../authenticationSlice";
 const SignIn: React.FC = () => {
 
     const dispatch = useAppDispatch();
-
+    let navigate = useNavigate();
     const signInStatus = useAppSelector(getAuthStatus);
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [isDisabled, setIsDisabled] = useState(true);
 
-    let navigate = useNavigate();
-
     useEffect(() => {
         validate();
-    }, [email, password])
+    },[email, password])
     
+    useEffect(() => {
+        if (signInStatus === "succeeded")
+            navigate("/");
+        
+    },[dispatch, signInStatus])
 
-    function validate() {
+    const validate = () => {
         if (password.length < 4) {
             setIsDisabled(true);
             return;
         } else {
             setIsDisabled(false);
         }
-        if (email.length === 0)
-        {
+        if (email.length === 0) {
             setIsDisabled(true);
             return;
         }
-        if (email.indexOf("@") === -1 || (email.indexOf(".com") === -1 && email.indexOf(".rs") === -1))
-        {
+        if (email.indexOf("@") === -1 || (email.indexOf(".com") === -1 && email.indexOf(".rs") === -1)) {
             setIsDisabled(true);
             return;
         }
     }
 
     let content;
+
+    if (signInStatus === "failed") {
+        content = <p className="border border-red-300">You have entered your password or email incorrenctly..<br /> Please check your input and try again.</p>;
+    }
+    else if (signInStatus === "loading")
+        content = <Spinner type="gray" />;
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
@@ -60,15 +67,6 @@ const SignIn: React.FC = () => {
             
         }
     }
-    
-    if (signInStatus === "succeeded")
-        navigate("/");
-    else if (signInStatus === "failed") {
-        console.log(signInStatus);
-        content = <p className="border border-red-300">You have entered your password or email incorrenctly..<br /> Please check your input and try again.</p>;
-    }
-    else if (signInStatus === "loading")
-        content = <Spinner type="gray" />;
 
     return (
         <div className="flex justify-center text-center pt-20">

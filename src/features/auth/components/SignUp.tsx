@@ -19,11 +19,15 @@ const SignUp: React.FC = () => {
     const [password, setPassword] = useState<string>('');
     const [isDisabled, setIsDisabled] = useState(true);
 
-    let content;
-
     useEffect(() => {
         validate();
-    }, [email, username, password])
+    }, [password, username, email]);
+
+    useEffect(() => {
+        if (signUpStatus === "succeeded")
+            navigate("/");
+        
+    },[dispatch, signUpStatus])
 
     const validate = () => {
         if (password.length < 4) {
@@ -59,10 +63,8 @@ const SignUp: React.FC = () => {
         }
     }
 
-
-    if (signUpStatus === "succeeded")
-        navigate("/");
-    else if (signUpStatus === "failed") {
+    let content;
+    if (signUpStatus === "failed") {
         console.log(signUpStatus);
         content = <p className="border border-red-300">User already exist.<br /> Please check your input and try again.</p>;
     }
