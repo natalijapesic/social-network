@@ -19,8 +19,6 @@ const SignUp: React.FC = () => {
     const [password, setPassword] = useState<string>('');
     const [isDisabled, setIsDisabled] = useState(true);
 
-    // https://www.bezkoder.com/react-form-validation-hooks/
-
     let content;
 
     useEffect(() => {
@@ -61,6 +59,7 @@ const SignUp: React.FC = () => {
             dispatch(signUp(request));
         }
     }
+
 
     if (signUpStatus === "succeeded")
         navigate("/");

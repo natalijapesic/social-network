@@ -10,6 +10,7 @@ import CreatePost from './features/posts/components/CreatePost';
 import SignIn from './features/auth/components/SignIn';
 import SignUp from './features/auth/components/SignUp';
 import PostsGlimmer from './components/PostsGlimmer';
+import PostsList from './features/posts/components/PostList';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -23,7 +24,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App/>}>
           <Route path="/" element={<Header />}>     
-          <Route index element={<PostsGlimmer />} /> 
+          <Route index element={<PostsList />} /> 
             {/* <Suspense fallback={<PostListGlimmer />}>
               
             </Suspense>  */}

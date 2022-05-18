@@ -45,7 +45,6 @@ const Post: React.FC<IProps> = (post: IProps) => {
 
   const onClick = () =>{
     setShow(!show);
-
   }
 
   return(
