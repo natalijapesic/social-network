@@ -12,7 +12,7 @@ export const publicRoutes = [
         element: <App />,
         children: [
             { path: "/", element: <Header /> },
-            { path: "/", element: <Posts /> },
+            { index:true, element: <Posts /> },
             { path: "signIn", element: <SignIn /> },
             { path: "signUp", element: <SignUp /> },
         ]
@@ -25,7 +25,7 @@ export const publicRoutes = [
 //         element: <App />,
 //         children: [
 //             { path: "/", element: <Header /> },
-//             { path: "/", element: <Posts /> },
+//             { index:true, element: <Posts /> },
 //             { path: "signIn", element: <SignIn /> },
 //             { path: "signUp", element: <SignUp /> },
 //         ]

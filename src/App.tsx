@@ -5,6 +5,14 @@ import { refreshUserStore } from './features/auth/authenticationSlice';
 import { UserModel } from './models';
 import storeService from './storeService';
 
+
+// export interface RouteObject {
+//   caseSensitive?: boolean;
+//   children?: RouteObject[];
+//   element?: React.ReactNode;
+//   index?: boolean;
+//   path?: string;
+// }
 function App() {
 
   const dispatch = useAppDispatch();
