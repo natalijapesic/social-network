@@ -3,7 +3,7 @@ type InputProps = {
     inputStyle: "rounded" | undefined;
     value: string;
     onChange: React.Dispatch<React.SetStateAction<string>>;
-    type: string;
+    type: "text" | "url" | "password" | undefined;
     placeholder: string;
 }
 

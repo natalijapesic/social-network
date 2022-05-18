@@ -5,7 +5,7 @@ import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "../po
 import Post from './Post'
 
 
-const PostsList: React.FC = () => {
+const Posts: React.FC = () => {
     const dispatch = useAppDispatch();
 
     let posts = useAppSelector(selectAllPosts);
@@ -86,4 +86,4 @@ const PostsList: React.FC = () => {
 
     );
 };
-export default PostsList
+export default Posts;

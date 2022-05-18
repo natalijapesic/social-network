@@ -20,6 +20,7 @@ function App() {
 
   return (
     <div className="dark min-w-screen min-h-screen bg-gray-900 text-gray-300">
+      {/* <Header /> */}
       <Outlet />
     </div>
   );
