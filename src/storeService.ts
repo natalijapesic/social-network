@@ -1,38 +1,33 @@
 import { UserModel } from "./models";
 
+class StoreService {
+  setAccessToken(token: string) {
+    localStorage.setItem("accessToken", JSON.stringify(token));
+  }
 
-class StoreService{
+  setUser(user: UserModel) {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
 
-    setAccessToken(token: string){
-        localStorage.setItem("accessToken", JSON.stringify(token));
-    }
+  getAccessToken(): string | null {
+    return localStorage.getItem("accessToken");
+  }
 
-    setUser(user: UserModel){
-        localStorage.setItem("user", JSON.stringify(user));
-    }
+  getUser(): UserModel | null {
+    const dataFromStorage = localStorage.getItem("user");
+    if (dataFromStorage) {
+      return JSON.parse(dataFromStorage);
+    } else return null;
+  }
 
-    getAccessToken():string | null{
-        return localStorage.getItem("accessToken");
-    }
+  removeFromStorage(key: string) {
+    localStorage.removeItem(key);
+  }
 
-    getUser():UserModel | null{
-        const dataFromStorage = localStorage.getItem("user");
-        if(dataFromStorage)
-        {
-            return JSON.parse(dataFromStorage);
-        }
-        else 
-            return null;
-    }
-
-    removeFromStorage(key: string){
-        localStorage.removeItem(key);
-    }
-
-    signOut() {
-        this.removeFromStorage("accessToken");
-        this.removeFromStorage("user");
-    }
+  signOut() {
+    this.removeFromStorage("accessToken");
+    this.removeFromStorage("user");
+  }
 }
 
 export default new StoreService();

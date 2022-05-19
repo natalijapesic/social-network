@@ -1,9 +1,8 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import postsReducer from '../features/posts/postSlice';
-import authReducer from '../features/auth/authenticationSlice';
-import storeUser from './middleware';
-import commentsReducer from '../features/comment/commentSlice';
-
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import postsReducer from "../features/posts/postSlice";
+import authReducer from "../features/auth/authenticationSlice";
+import storeUser from "./middleware";
+import commentsReducer from "../features/comment/commentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +10,8 @@ export const store = configureStore({
     auth: authReducer,
     comments: commentsReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(storeUser)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(storeUser),
 });
 
 export type AppDispatch = typeof store.dispatch;

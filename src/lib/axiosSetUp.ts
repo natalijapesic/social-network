@@ -1,24 +1,23 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import storeService from "../storeService";
-import config from '../config/app.config.json'
+import config from "../config/app.config.json";
 
 axios.defaults.baseURL = `${config.server}`;
-axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.put['Content-Type'] = 'application/json';
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.put["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(
   async (config: AxiosRequestConfig) => {
     let token = storeService.getAccessToken();
     if (token) {
-      config.headers!['Authorization'] = `Bearer ${token}`;
+      config.headers!["Authorization"] = `Bearer ${token}`;
     }
     return config;
   },
-  error => {
+  (error) => {
     return Promise.reject(error);
   }
 );
-
 
 // axios.interceptors.response.use(
 //   (response: AxiosRequestConfig) => {

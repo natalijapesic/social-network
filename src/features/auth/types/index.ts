@@ -1,24 +1,23 @@
-import { UserModel } from "../../../models"
+import { UserModel } from "../../../models";
 
 export type AuthState = {
-    
-    user: UserModel | null;
-    status: string;
-    error: string | undefined;
+  user: UserModel | null;
+  status: string;
+  error: string | undefined;
 };
 
 export type SignUpRequest = {
-    username: string;
-    password: string;
-    email: string;
-}
+  username: string;
+  password: string;
+  email: string;
+};
 
 export type UserResponse = {
-    user: UserModel;
-    accessToken: string;
-}
+  user: UserModel;
+  accessToken: string;
+};
 
 export type SignInRequest = {
-    email: string;
-    password: string;
-}
+  email: string;
+  password: string;
+};

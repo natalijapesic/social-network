@@ -1,30 +1,30 @@
-import axios from '../../../lib/axiosSetUp';
-import { PostModel } from '../../../models';
-import { LikeModel, PageRequest } from '../types';
+import axios from "../../../lib/axiosSetUp";
+import { PostModel } from "../../../models";
+import { LikeModel, PageRequest } from "../types";
 
+class PostService {
+  async get(request: PageRequest) {
+    let url = `/posts?_page=${request.page}&_limit=${request.limit}`;
+    if (request.searchParam && request.searchParam !== "")
+      url = `${url}&authorName=${request.searchParam}`;
 
-class PostService{
+    return await axios.get(url);
+  }
 
-    async get(request: PageRequest){
-        const response = await axios.get(`/posts?_page=${request.page}&_limit=${request.limit}`)
-        return response;
-    }
+  async add(newPost: PostModel) {
+    return await axios.post<PostModel>("/posts", JSON.stringify(newPost));
+  }
 
-    async add(newPost: PostModel){
-        const response = await axios.post<PostModel>('/posts', JSON.stringify(newPost));
-        return response;
-    }
+  async like(request: LikeModel) {
+    return await axios.put(
+      `/posts/${request.likedPost.id}`,
+      JSON.stringify(request.likedPost)
+    );
+  }
 
-    async like(request: LikeModel){
-        const response = await axios.put(`/posts/${request.likedPost.id}`, JSON.stringify(request.likedPost));
-        return response;
-    }
-
-    async delete(postId: number){
-        const response = await axios.delete(`/posts/${postId}`);
-        return response;
-    }
-
+  async delete(postId: number) {
+    return await axios.delete(`/posts/${postId}`);
+  }
 }
 
 export default new PostService();
