@@ -8,7 +8,7 @@ type TextareaProps = {
 
 const Input: React.FC<TextareaProps> = (props: TextareaProps) => {
 
-    const basicClassName = "block w-full px-3 py-1.5 font-mono border border-solid border-gray-300 rounded transition";
+    const basicClassName = "focus:text-gray-700 block w-full px-3 py-1.5 border border-solid border-gray-300 rounded transition";
     
     return (
         <div className="mb-6">

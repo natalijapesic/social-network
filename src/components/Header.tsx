@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import { useAppSelector } from "../stores/hooks";
 import { getAuthUser, signOut } from "../features/auth/authenticationSlice";
+import CustomLink from "./CustomLink";
 
 
 const Header: React.FC = () => {
@@ -11,8 +12,7 @@ const Header: React.FC = () => {
     const dispatch = useDispatch();
     let user = useAppSelector(getAuthUser);
 
-    const onClick = ()=>
-    {
+    const onClick = () => {
         dispatch(signOut());
     }
 
@@ -32,14 +32,8 @@ const Header: React.FC = () => {
                     {
                         user &&
                         <>
-                            <Link
-                                to="createPost">
-                                Create Post
-                            </Link>
-                            <a
-                                onClick={onClick}>
-                                SignOut
-                            </a>
+                            <CustomLink to="createPost" message="Create Post" linkStyle="cyan" />
+                            <CustomLink to="" message="SignOut" onClick={onClick} linkStyle="cyan" />
                         </>
 
                     }
@@ -47,14 +41,8 @@ const Header: React.FC = () => {
                     {
                         !user &&
                         <>
-                            <Link
-                                to="signIn">
-                                SignIn
-                            </Link>
-                            <Link
-                                to="signUp">
-                                SignUp
-                            </Link>
+                            <CustomLink to="signIn" message="SignIn" linkStyle="cyan" />
+                            <CustomLink to="signUp" message="SignUp" linkStyle="cyan" />
                         </>
                     }
                    

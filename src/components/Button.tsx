@@ -28,19 +28,20 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
                 props.buttonStyle === "dark"
                     ? darkClassName
                     : props.buttonStyle === "light"
-                    ? lightClassName
-                    : props.buttonStyle === "disable"
-                    ? disbledClassName
-                    : props.buttonStyle === "next"
-                    ? nextClassName
-                    : props.buttonStyle === "prev"
-                    ? prevClassName
-                    : props.buttonStyle === "redRound"
-                    ? redRoundClassName
-                    : undefined
+                        ? lightClassName
+                        : props.buttonStyle === "disable"
+                            ? disbledClassName
+                            : props.buttonStyle === "next"
+                                ? nextClassName
+                                : props.buttonStyle === "prev"
+                                    ? prevClassName
+                                    : props.buttonStyle === "redRound"
+                                        ? redRoundClassName
+                                        : undefined
             }
             disabled={props.disabled}
         > {props.message} </button>
+        
     );
 }
 

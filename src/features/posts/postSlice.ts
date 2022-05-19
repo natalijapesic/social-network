@@ -84,7 +84,7 @@ const postSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(deletePost.fulfilled, (state, action: PayloadAction<number>) => {
-                const post = state.posts.find(el => el.id == action.payload);
+                const post = state.posts.find(el => el.id === action.payload);
                 if(post)
                 {
                     const index = state.posts.indexOf(post);

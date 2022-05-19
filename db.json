@@ -195,6 +195,13 @@
       "id": 5,
       "username": "test1",
       "isAdmin": false
+    },
+    {
+      "email": "novi@gmail.com",
+      "password": "$2a$10$uoa7TyG4VWFchiNyuABykeWIygfbXBCa6gPnXfDje5IOfTv9UM70a",
+      "id": 6,
+      "username": "novi",
+      "isAdmin": false
     }
   ]
 }

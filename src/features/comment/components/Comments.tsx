@@ -29,7 +29,7 @@ const Comments: React.FC<IProps> = (props: IProps) => {
 
     if (commentsStatus === 'succeeded') {
         content = comments.filter((comment) => comment.postId === props.postId)
-                          .map((comment, index) => <Comment key={index} {...comment} />)
+            .map((comment, index) => <Comment key={index} {...comment} />)
     } else if (commentsStatus === 'failed') {
         content = <p>{error}</p>;
     } else if (commentsStatus === 'loading') {

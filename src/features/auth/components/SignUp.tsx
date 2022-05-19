@@ -19,16 +19,6 @@ const SignUp: React.FC = () => {
     const [password, setPassword] = useState<string>('');
     const [isDisabled, setIsDisabled] = useState(true);
 
-    useEffect(() => {
-        validate();
-    }, [password, username, email]);
-
-    useEffect(() => {
-        if (signUpStatus === "succeeded")
-            navigate("/");
-        
-    },[dispatch, signUpStatus])
-
     const validate = () => {
         if (password.length < 4) {
             setIsDisabled(true);
@@ -62,6 +52,16 @@ const SignUp: React.FC = () => {
             dispatch(signUp(request));
         }
     }
+
+    useEffect(() => {
+        validate();
+    }, [password, username, email, validate]);
+
+    useEffect(() => {
+        if (signUpStatus === "succeeded")
+            navigate("/");
+        
+    },[dispatch, signUpStatus])
 
     let content;
     if (signUpStatus === "failed") {
