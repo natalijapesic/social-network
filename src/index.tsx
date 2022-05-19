@@ -26,12 +26,11 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<Header />}>
-              <Route index element={<PostsGlimmer />} />
-              {/* <Route index
+              <Route index
                 element={
                   <Suspense fallback={<PostsGlimmer />}>
                     <Posts /></Suspense>}
-              /> */}
+              />
               <Route path="signIn" element={<SignIn />} />
               <Route path="signUp" element={<SignUp />} />
               <Route path="createPost" element={
@@ -48,9 +47,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-            // <Route path="signUp" element={
-            //   <AdminProtected>
-            //     <SignUp />
-            //   </AdminProtected>
-            // } />

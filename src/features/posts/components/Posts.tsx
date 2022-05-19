@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
+import { getAuthUser } from "../../auth/authenticationSlice";
 import { fetchPosts, getPostsError, getPostsStatus, selectAllPosts } from "../postSlice";
 import Post from './Post'
 
@@ -27,16 +28,17 @@ const Posts: React.FC = () => {
 
 
     const nextPage = () =>{
-        if (posts.length < limit) {
+
+        if (posts.length === 0)
             setDisableNext(true);
-        }else{
+        else{
             setDisablePrev(false);
             setPage(page + 1);
         }
+
     }
 
     const prevPage = () =>{
-        console.log(disablePrev);
         if(page > 1){
             setDisableNext(false);
             setPage(page - 1);

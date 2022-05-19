@@ -27,72 +27,6 @@
       "userId": 1
     },
     {
-      "id": 5,
-      "title": "post5",
-      "image": "https://place-hold.it/300",
-      "description": "dsovjndjn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:16:15 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 7,
-      "title": "post6",
-      "image": "https://place-hold.it/400",
-      "description": "sdljkfndsjn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:18:22 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 8,
-      "title": "postg7",
-      "image": "https://place-hold.it/500",
-      "description": "odcdsj",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:19:45 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 9,
-      "title": "post9",
-      "image": "https://place-hold.it/500",
-      "description": "kdscjn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:19:57 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 10,
-      "title": "post10",
-      "image": "https://place-hold.it/300",
-      "description": "sdn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:20:08 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 11,
-      "title": "post11",
-      "image": "https://place-hold.it/300",
-      "description": "sl;cnsdjcn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:20:18 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
       "id": 12,
       "title": "post12",
       "image": "https://place-hold.it/500",
@@ -113,36 +47,9 @@
       "likes": 0,
       "usersLikes": [],
       "userId": 1
-    },
-    {
-      "id": 14,
-      "title": "title",
-      "image": "https://place-hold.it/300",
-      "description": "nestonovo",
-      "authorName": "test",
-      "date": "Wed, 18 May 2022 13:57:08 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
     }
   ],
   "comments": [
-    {
-      "id": 4,
-      "description": "ovde nisam dodala",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 5,
-      "date": "Sun, 15 May 2022 12:12:28 GMT"
-    },
-    {
-      "id": 12,
-      "description": "",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 7,
-      "date": "Tue, 17 May 2022 11:16:57 GMT"
-    },
     {
       "id": 13,
       "description": "jos jedan komentarcic",

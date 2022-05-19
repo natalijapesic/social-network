@@ -3,29 +3,34 @@ import { Link, Outlet } from "react-router-dom";
 import { useAppSelector } from "../stores/hooks";
 import { getAuthUser, signOut } from "../features/auth/authenticationSlice";
 import CustomLink from "./CustomLink";
+import Input from "./Input";
+import { useState } from "react";
 
 
 const Header: React.FC = () => {
 
-    //onChange={(e) => searchPosts(e.target.value)} 
+    const [search, setSearch] = useState<string>('');
+
 
     const dispatch = useDispatch();
     let user = useAppSelector(getAuthUser);
 
-    const onClick = () => {
+    const onSignOut = () => {
         dispatch(signOut());
     }
+
+    // const onClick = () => {
+
+    // }
 
     return (
         <div>
             <header className="flex justify-between bg-gray-800">
-                <div></div>
+
+                <CustomLink to="/" message="Home" linkStyle="cyan" />
+
                 <div>
-                    <input 
-                        type="text" 
-                        placeholder="Input username" 
-                        className="border-b-2 text-sky-100 my-3 leading-tight focus:border-transparent bg-gray-800">
-                    </input>
+                    <Input type="text" placeholder="Input username" inputStyle="bottom" value={search} onChange={setSearch}/>
                 </div>
 
                 <div className="flex justify-between text-white ">
@@ -33,7 +38,7 @@ const Header: React.FC = () => {
                         user &&
                         <>
                             <CustomLink to="createPost" message="Create Post" linkStyle="cyan" />
-                            <CustomLink to="" message="SignOut" onClick={onClick} linkStyle="cyan" />
+                            <CustomLink to="" message="SignOut" onClick={onSignOut} linkStyle="cyan" />
                         </>
 
                     }
