@@ -1,6 +1,6 @@
 import { ButtonStyle } from "./types";
 
-type ButtonProps  = {
+type ButtonProps = {
   buttonStyle: ButtonStyle;
   value?: number | string | undefined;
   onClick?: () => void | ((value: number) => void);
@@ -24,50 +24,26 @@ const redRoundClassName =
 const searchClassName =
   "btn inline-block px-4 border-2 border-gray-600 text-gray-400 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out";
 
+const buttonStyles: Record<ButtonStyle, string> = {
+  dark: darkClassName,
+  light: lightClassName,
+  disable: disbledClassName,
+  prev: prevClassName,
+  next: nextClassName,
+  redRound: redRoundClassName,
+  search: searchClassName,
+};
 
-  // const classMap = new Map<ButtonStyle, string>();
-  // classMap.set(ButtonStyle.dark, darkClassName);
-  // classMap.set(ButtonStyle.light, lightClassName);
-  // // classMap.set(ButtonStyle.dark, darkClassName);
 
-  // classMap.get(ButtonStyle.dark);
-
-  // const classMapObj: Record<ButtonStyle, string> = {
-  //   'dark': 'asdasd',
-  //   ''
-  // };
-
-  // classMapObj[ButtonStyle.dark]
-
-  const setStyle = (buttonStyle: ButtonStyle) =>{
-    switch (String(buttonStyle)) {
-        case ButtonStyle.dark:
-            return darkClassName;
-        case ButtonStyle.light:
-            return lightClassName;
-        case ButtonStyle.disable:
-            return disbledClassName;
-        case ButtonStyle.next:
-            return nextClassName;
-        case ButtonStyle.prev:
-            return prevClassName;
-        case ButtonStyle.redRound:
-            return redRoundClassName;
-        case ButtonStyle.search:
-            return searchClassName;
-        default:
-            return darkClassName;
-    }
-}
-
-const Button: React.FC<ButtonProps & React.HTMLProps<HTMLButtonElement>> = (props: ButtonProps) => {
+const Button: React.FC<ButtonProps> = (
+  props: ButtonProps
+) => {
   return (
     <button
-      {...props}
       value={props.value}
       onClick={props.onClick}
       type={props.type}
-      className={setStyle(props.buttonStyle)}
+      className={buttonStyles[props.buttonStyle]}
       disabled={props.disabled}
     >
       {" "}

@@ -1,7 +1,7 @@
 type InputProps = {
   inputStyle: "rounded" | "bottom" | undefined;
   value: string;
-  onChange: React.Dispatch<React.SetStateAction<string>>;
+  onChange: React.Dispatch<React.SetStateAction<string>> | ((value:string) => void);
   type: "text" | "url" | "password" | undefined;
   placeholder: string;
 };

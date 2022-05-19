@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
+import Spinner from "../../../components/Spinner";
 import { ButtonStyle } from "../../../components/types";
 import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
 import {
@@ -47,7 +48,7 @@ const Posts: React.FC = () => {
 
   let content;
   if (postStatus === "loading") {
-    content = <p>"Loading..."</p>;
+    content = <Spinner type="gray" />;
   } else if (postStatus === "succeeded") {
     content = posts.map((post, index) => <Post key={index} {...post} />);
   } else if (postStatus === "failed") {

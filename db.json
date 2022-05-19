@@ -1,60 +1,29 @@
 {
   "posts": [
     {
-      "id": 3,
-      "title": "post3",
-      "image": "https://place-hold.it/300",
-      "description": "ojdncwjn",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:13:59 GMT",
-      "likes": 1,
-      "usersLikes": [4],
-      "userId": 1
-    },
-    {
-      "id": 12,
-      "title": "post12",
-      "image": "https://place-hold.it/500",
-      "description": "dsljnvc",
-      "authorName": "test",
-      "date": "Sat, 14 May 2022 13:20:26 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
-      "id": 13,
-      "title": "asd",
-      "image": "https://place-hold.it/300x500",
-      "description": "zzz",
-      "authorName": "test",
-      "date": "Tue, 17 May 2022 11:18:02 GMT",
-      "likes": 0,
-      "usersLikes": [],
-      "userId": 1
-    },
-    {
       "id": 14,
-      "title": "New search",
-      "image": "https://place-hold.it/300x500",
-      "description": "fewkjf",
-      "authorName": "natalija",
-      "date": "Thu, 19 May 2022 08:20:44 GMT",
+      "title": "Lorem Ipsum",
+      "image": "https://place-hold.it/300",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales neque diam, eu sollicitudin justo sollicitudin et. Aliquam ut euismod augue. Suspendisse dignissim feugiat nulla, eu accumsan metus feugiat nec. Aliquam cursus nunc pretium orci cursus malesuada. Praesent ac velit non eros dapibus hendrerit. Sed vestibulum arcu pharetra laoreet ultrices. Donec sagittis efficitur diam. Fusce pellentesque lacus eu libero dignissim, non consectetur lectus feugiat. Maecenas ornare ut libero dictum volutpat. Integer a neque a massa dapibus pretium eget a erat. Ut efficitur aliquam efficitur.",
+      "authorName": "test",
+      "date": "Thu, 19 May 2022 13:50:35 GMT",
       "likes": 0,
       "usersLikes": [],
-      "userId": 4
-    }
-  ],
-  "comments": [
+      "userId": 1
+    },
     {
-      "id": 13,
-      "description": "jos jedan komentarcic",
-      "authorName": "natalija",
-      "authorId": 4,
-      "postId": 3,
-      "date": "Wed, 18 May 2022 19:26:59 GMT"
+      "id": 15,
+      "title": "Title",
+      "image": "https://place-hold.it/300",
+      "description": "Etiam at nulla maximus, tempus sapien in, dapibus lacus. Cras laoreet id ipsum vitae scelerisque. Ut faucibus interdum neque, eu convallis augue commodo non. Sed sed laoreet lectus, eget commodo erat. Aliquam rutrum lectus et est congue, eget pellentesque turpis pharetra. Vestibulum malesuada quam in lacus posuere, ac vulputate ipsum ultrices. Proin sodales tristique magna non porta. Integer tristique pellentesque est, id porta quam auctor quis. Maecenas sit amet ante id lorem efficitur auctor.",
+      "authorName": "test",
+      "date": "Thu, 19 May 2022 14:05:42 GMT",
+      "likes": 0,
+      "usersLikes": [],
+      "userId": 1
     }
   ],
+  "comments": [],
   "users": [
     {
       "email": "test@gmail.com",

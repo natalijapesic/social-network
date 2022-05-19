@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../stores/hooks";
 import { getAuthUser, signOut } from "../features/auth/authenticationSlice";
 import CustomLink from "./CustomLink";
@@ -10,7 +9,7 @@ import Button from "./Button";
 import { ButtonStyle } from "./types";
 
 const Header: React.FC = () => {
-  const [search, setSearch] = useState<string>("");
+  let [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useAppDispatch();
 
   let user = useAppSelector(getAuthUser);
@@ -19,10 +18,17 @@ const Header: React.FC = () => {
     dispatch(signOut());
   };
 
+  // https://reactrouter.com/docs/en/v6/getting-started/tutorial#search-params
+  // https://reactrouter.com/docs/en/v6/getting-started/tutorial#search-params
   const onSearch = () => {
-    dispatch(setSearchParam(search));
+    // dispatch(setSearchParam(search));
     dispatch(fetchPosts({ page: 1, limit: 5 }));
   };
+
+  // const fun = (param: string) =>{
+  //   if(param)
+  //     setSearchParam({param})
+  // }
 
   return (
     <div>
@@ -30,13 +36,13 @@ const Header: React.FC = () => {
         <CustomLink to="/" message="Home" linkStyle="cyan" />
 
         <div className="flex">
-          <Input
+          {/* <Input
             type="text"
             placeholder="Input username"
             inputStyle="bottom"
-            value={search}
-            onChange={setSearch}
-          />
+            value={searchParams.get("authorName") || ""}
+            onChange={}
+          /> */}
           <Button
             type="button"
             onClick={onSearch}
@@ -60,6 +66,14 @@ const Header: React.FC = () => {
                 onClick={onSignOut}
                 linkStyle="cyan"
               />
+              {
+                user.isAdmin &&
+                <CustomLink
+                to="admin"
+                message="Admin"
+                linkStyle="cyan"
+                />
+              }
             </>
           )}
           {!user && (

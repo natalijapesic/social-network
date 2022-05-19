@@ -3,7 +3,7 @@ import { PostModel } from "../../../models";
 import { useAppDispatch, useAppSelector } from "../../../stores/hooks";
 import { getAuthUser } from "../../auth/authenticationSlice";
 import CreateComment from "../../comment/components/CreateComment";
-import { deletePost, likePost } from "../postSlice";
+import { likePost } from "../postSlice";
 import Button from "../../../components/Button";
 import CommentList from "../../comment/components/Comments";
 import { ButtonStyle } from "../../../components/types";
@@ -44,29 +44,14 @@ const Post: React.FC<IProps> = (post: IProps) => {
     }
   };
 
-  const onDelete = () => {
-    if (window.confirm("Are you sure you want to delete this post?"))
-      dispatch(deletePost(post.id));
-  };
-
   return (
     <div className="flex-col  bg-gray-800 my-5">
-      {user && user.isAdmin && (
-        <Button
-          value={post.id}
-          onClick={onDelete}
-          type="button"
-          buttonStyle={ButtonStyle.redRound}
-          message="X"
-          disabled={false}
-        />
-      )}
       <div className="flex-col m-5" onClick={() => setShow(!show)}>
         <img src={post.image} />
         <p className="text-2xl text-white font-mono">{post.title}</p>
         <p className="text-sm text-slate-200 font-mono">{post.date}</p>
       </div>
-      <div className="flex-col ml-7 content-center">
+      <div className="w-200 flex-col ml-7 content-center">
         <>
           {show ? (
             <>
@@ -80,11 +65,11 @@ const Post: React.FC<IProps> = (post: IProps) => {
                   disabled={false}
                 />
               )}
-              <p>
-                <span className="text-lg text-white font mono mr-5">
+              <p className="w-200 whitespace-normal">
+                <span className="text-lg text-white mr-5">
                   {post.authorName}:
                 </span>
-                <span className="text-base text-slate-400 font mono">
+                <span className="break-words text-base text-slate-400">
                   {post.description.substring(0, 100)}
                 </span>
               </p>

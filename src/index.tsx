@@ -18,14 +18,15 @@ const root = createRoot(container);
 
 const Posts = lazy(() => import("./features/posts/components/Posts"));
 const CreatePost = lazy(() => import("./features/posts/components/CreatePost"));
+const Admin = lazy(() => import("./components/Admin"));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
-            <Route path="/" element={<Header />}>
+          <Route path="/*" element={<App />}>
+            <Route path="/*" element={<Header />}>
               <Route
                 index
                 element={
@@ -46,7 +47,18 @@ root.render(
                   </UserProtected>
                 }
               />
+              <Route
+                path="admin"
+                element={
+                  <AdminProtected>
+                    <Suspense fallback={<Spinner type="gray" />}>
+                      <Admin />
+                    </Suspense>
+                  </AdminProtected>
+                }
+              />
             </Route>
+
           </Route>
         </Routes>
       </BrowserRouter>
