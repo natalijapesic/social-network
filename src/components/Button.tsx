@@ -34,10 +34,7 @@ const buttonStyles: Record<ButtonStyle, string> = {
   search: searchClassName,
 };
 
-
-const Button: React.FC<ButtonProps> = (
-  props: ButtonProps
-) => {
+const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   return (
     <button
       value={props.value}

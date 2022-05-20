@@ -24,24 +24,27 @@ const AdminPost: React.FC<IProps> = (post: IProps) => {
   };
 
   return (
-    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={post.id}>
-        <td>{post.id}</td>
-        <td>{post.title}</td>
-        <td>{post.image}</td>
-        <td>{post.description}</td>
-        <td>{post.authorName}</td>
-        <td>{post.date}</td>
-        <td>{post.likes}</td>
-    <td>
+    <tr
+      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      key={post.id}
+    >
+      <td>{post.id}</td>
+      <td>{post.title}</td>
+      <td>{post.image}</td>
+      <td>{post.description}</td>
+      <td>{post.authorName}</td>
+      <td>{post.date}</td>
+      <td>{post.likes}</td>
+      <td>
         <Button
-        value={post.id}
-        onClick={onDelete}
-        type="button"
-        buttonStyle={ButtonStyle.redRound}
-        message="X"
-        disabled={false}
+          value={post.id}
+          onClick={onDelete}
+          type="button"
+          buttonStyle={ButtonStyle.redRound}
+          message="X"
+          disabled={false}
         />
-    </td>
+      </td>
     </tr>
   );
 };

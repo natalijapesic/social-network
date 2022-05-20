@@ -5,6 +5,7 @@ import CustomLink from "./CustomLink";
 import { fetchPosts } from "../features/posts/postSlice";
 import Button from "./Button";
 import { ButtonStyle } from "./types";
+import Input from "./Input";
 
 const Header: React.FC = () => {
   let [searchParam, setSearchParam] = useSearchParams();
@@ -16,8 +17,22 @@ const Header: React.FC = () => {
     dispatch(signOut());
   };
 
+  const setSearchUrl = (authorName: string) => {
+    if (authorName) {
+      setSearchParam({ authorName });
+    } else {
+      setSearchParam({});
+    }
+  };
+
   const onSearch = () => {
-    dispatch(fetchPosts({ page: 1, limit: 5, searchParam: searchParam.get("authorName") }));
+    dispatch(
+      fetchPosts({
+        page: 1,
+        limit: 5,
+        searchParam: searchParam.get("authorName"),
+      })
+    );
   };
 
   return (
@@ -26,16 +41,8 @@ const Header: React.FC = () => {
         <CustomLink to="/" message="Home" linkStyle="cyan" />
 
         <div className="flex">
-          <input
-          value={searchParam.get("authorName") || ""}
-          onChange={(event) => {
-            let authorName = event.target.value;
-            if (authorName) {
-              setSearchParam({ authorName });
-            } else {
-              setSearchParam({});
-            }
-          }} />
+          <Input placeholder="Username" type="text" inputStyle="bottom" onChange={setSearchUrl} value={searchParam.get("authorName") || ""} />
+
           <Button
             type="button"
             onClick={onSearch}
@@ -59,14 +66,9 @@ const Header: React.FC = () => {
                 onClick={onSignOut}
                 linkStyle="cyan"
               />
-              {
-                user.isAdmin &&
-                <CustomLink
-                to="admin"
-                message="Admin"
-                linkStyle="cyan"
-                />
-              }
+              {user.isAdmin && (
+                <CustomLink to="admin" message="Admin" linkStyle="cyan" />
+              )}
             </>
           )}
           {!user && (
