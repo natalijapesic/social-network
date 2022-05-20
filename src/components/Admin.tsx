@@ -5,6 +5,7 @@ import {
 } from "../features/posts/postSlice";
 import { useAppSelector } from "../stores/hooks";
 import AdminPost from "./AdminPost";
+import Spinner from "./Spinner";
 
 const headerInfo = ['#', 'Title', 'Image', 'Description', 'Author name', 'Date', 'Likes', 'Delete'];
 
@@ -15,7 +16,7 @@ const Admin: React.FC = () => {
 
   let content;
   if (postStatus === "loading") {
-    content = <p>"Loading..."</p>;
+    content = <Spinner type="gray" />
   } else if (postStatus === "succeeded") {
     content = posts.map((post, index) => <AdminPost key={index} {...post} />);
   } else if (postStatus === "failed") {

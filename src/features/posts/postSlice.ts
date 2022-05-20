@@ -13,10 +13,7 @@ const initialState: PostState = {
 
 export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",
-  async (request: PageRequest, api) => {
-    const state = api.getState() as RootState;
-    request.searchParam = state.posts.searchParam;
-    console.log(request.searchParam);
+  async (request: PageRequest) => {
     const response = await postService.get(request);
     return response.data;
   }

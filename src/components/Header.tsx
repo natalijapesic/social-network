@@ -2,14 +2,12 @@ import { Outlet, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../stores/hooks";
 import { getAuthUser, signOut } from "../features/auth/authenticationSlice";
 import CustomLink from "./CustomLink";
-import Input from "./Input";
-import { useState } from "react";
-import { fetchPosts, setSearchParam } from "../features/posts/postSlice";
+import { fetchPosts } from "../features/posts/postSlice";
 import Button from "./Button";
 import { ButtonStyle } from "./types";
 
 const Header: React.FC = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParam, setSearchParam] = useSearchParams();
   const dispatch = useAppDispatch();
 
   let user = useAppSelector(getAuthUser);
@@ -18,17 +16,9 @@ const Header: React.FC = () => {
     dispatch(signOut());
   };
 
-  // https://reactrouter.com/docs/en/v6/getting-started/tutorial#search-params
-  // https://reactrouter.com/docs/en/v6/getting-started/tutorial#search-params
   const onSearch = () => {
-    // dispatch(setSearchParam(search));
-    dispatch(fetchPosts({ page: 1, limit: 5 }));
+    dispatch(fetchPosts({ page: 1, limit: 5, searchParam: searchParam.get("authorName") }));
   };
-
-  // const fun = (param: string) =>{
-  //   if(param)
-  //     setSearchParam({param})
-  // }
 
   return (
     <div>
@@ -36,13 +26,16 @@ const Header: React.FC = () => {
         <CustomLink to="/" message="Home" linkStyle="cyan" />
 
         <div className="flex">
-          {/* <Input
-            type="text"
-            placeholder="Input username"
-            inputStyle="bottom"
-            value={searchParams.get("authorName") || ""}
-            onChange={}
-          /> */}
+          <input
+          value={searchParam.get("authorName") || ""}
+          onChange={(event) => {
+            let authorName = event.target.value;
+            if (authorName) {
+              setSearchParam({ authorName });
+            } else {
+              setSearchParam({});
+            }
+          }} />
           <Button
             type="button"
             onClick={onSearch}

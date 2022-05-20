@@ -15,5 +15,5 @@ export type LikeModel = {
 export type PageRequest = {
   page: number;
   limit: number;
-  searchParam?: string;
+  searchParam?: string | null;
 };
