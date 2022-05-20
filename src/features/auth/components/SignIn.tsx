@@ -16,8 +16,6 @@ const SignIn: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [isDisabled, setIsDisabled] = useState(true);
 
-  // const isValid = ['.com', '.rs',].some(tld => 'asdad'.endsWith(tld));
-
   useEffect(() => {
     validate();
   }, [email, password]);

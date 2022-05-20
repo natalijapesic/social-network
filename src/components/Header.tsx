@@ -41,7 +41,13 @@ const Header: React.FC = () => {
         <CustomLink to="/" message="Home" linkStyle="cyan" />
 
         <div className="flex">
-          <Input placeholder="Username" type="text" inputStyle="bottom" onChange={setSearchUrl} value={searchParam.get("authorName") || ""} />
+          <Input
+            placeholder="Username"
+            type="text"
+            inputStyle="bottom"
+            onChange={setSearchUrl}
+            value={searchParam.get("authorName") || ""}
+          />
 
           <Button
             type="button"
@@ -60,15 +66,15 @@ const Header: React.FC = () => {
                 message="Create Post"
                 linkStyle="cyan"
               />
+              {user.isAdmin && (
+                <CustomLink to="admin" message="Admin" linkStyle="cyan" />
+              )}
               <CustomLink
                 to=""
                 message="SignOut"
                 onClick={onSignOut}
                 linkStyle="cyan"
               />
-              {user.isAdmin && (
-                <CustomLink to="admin" message="Admin" linkStyle="cyan" />
-              )}
             </>
           )}
           {!user && (
